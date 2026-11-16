@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>E-notifiers · Project Deep Dive — Rajatha Rao V</title>
+<style>
+:root{--ink:#16192C;--muted:#667085;--line:#E4ECF7;--accent:#F57920;--blue:#4C6FFF;--bg:#F7F9FC;--card:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background-color:var(--bg);background-image:radial-gradient(#cdd0d7 .8px,transparent .8px);background-size:24px 24px;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.55}button,a{font:inherit}a{color:inherit}button{cursor:pointer}.wrap{max-width:1500px;margin:auto;padding:28px 24px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.brand{font-weight:850;letter-spacing:-.045em;font-size:22px}.brand span{color:var(--accent)}.top a{text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:9px 16px;background:#fff;font-size:13px}.eyebrow{font-size:11px;letter-spacing:.14em;font-weight:800;color:#777e89;text-transform:uppercase}.heading{display:flex;justify-content:space-between;align-items:end;gap:22px;margin:0 0 24px}.heading h1{font-size:clamp(38px,5vw,70px);letter-spacing:-.065em;line-height:1.05;margin:8px 0}.heading p{color:var(--muted);max-width:540px;margin:0}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:23px;padding:24px;min-width:0;overflow:hidden}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}.card h2{font-size:clamp(23px,2.2vw,35px);line-height:1.13;letter-spacing:-.04em;margin:18px 0 14px}.card h3{font-size:20px;letter-spacing:-.03em;margin:14px 0}.card p{color:#4d535e;margin:8px 0 15px}.card small{color:var(--muted)}.snapshot-tabs{display:flex;gap:5px;background:#f1f2f4;padding:5px;border-radius:99px;margin:18px 0 26px}.snapshot-tabs button{border:0;background:transparent;border-radius:99px;padding:10px 8px;flex:1;font-size:12px;font-weight:750;color:#667085}.snapshot-tabs button[aria-selected=true]{background:#16192C;color:white;box-shadow:0 0 0 2px var(--blue)}.tab-panel{min-height:145px}.tab-panel[hidden]{display:none}.tab-panel h3{font-size:28px}.meta{margin:18px 0 0}.meta div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid #e9e9eb}.meta dt{font-weight:800;font-size:12px;text-transform:uppercase}.meta dd{margin:0;text-align:right;color:#667085;font-size:13px}.hero-screen{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#EDF2F7,#FFEEDA);min-height:360px}.laptop{width:100%;max-width:760px;filter:drop-shadow(0 20px 17px rgba(24,27,40,.14))}.laptop .lid{border:9px solid #252934;border-bottom-width:12px;border-radius:15px 15px 5px 5px;background:#fff;overflow:hidden;aspect-ratio:16/10}.laptop img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}.laptop .base{width:108%;height:13px;margin-left:-4%;background:linear-gradient(#e1e3e7,#9fa5b1);border-radius:0 0 65% 65%;box-shadow:0 3px 2px #b4b7c1}.big-number{font-size:49px;font-weight:800;letter-spacing:-.06em;line-height:1}.fact{display:flex;align-items:center;gap:14px;margin:22px 0}.fact b{background:#D4FBBC;color:#2E7D0B;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;flex:none}.fact p{margin:0;font-size:13px}.fact strong{display:block;color:#222;font-size:14px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}.two-col>div+div{border-left:1px solid var(--line);padding-left:22px}.insights{display:grid;grid-template-columns:1fr 1fr;gap:22px}.insight{padding:8px 0}.insight strong{font-size:27px;letter-spacing:-.04em}.insight span{display:block;font-size:12px;font-weight:750}.insight p{font-size:12px;margin:5px 0}.dots{display:grid;grid-template-columns:repeat(6,6px);gap:4px;margin-bottom:8px}.dots i{width:6px;height:6px;background:#D4FBBC;border-radius:50%}.dots i:nth-child(3n){background:#5FC322}.story{display:flex;gap:16px;align-items:flex-start;margin:18px 0}.step{font-weight:850;font-size:13px;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:#F7F9FC}.story h3{font-size:17px;margin:0 0 5px}.story p{margin:0;font-size:13px}.mock{padding:14px;background:#F7F9FC;border:1px solid #e7e9ef;border-radius:16px;margin:18px 0}.mock img{width:100%;display:block;border-radius:7px}.mock.tall{max-height:490px;overflow:hidden}.mock.tall img{height:auto}.mockrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pill{display:inline-block;padding:5px 11px;border-radius:99px;background:#FFEEDA;color:#B8560C;font-size:11px;font-weight:800}.note{border-left:3px solid var(--accent);padding:8px 0 8px 14px;margin-top:15px;color:#555}.quote{font-size:20px;letter-spacing:-.025em;line-height:1.35;color:#2c3039}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{border:1px solid var(--line);border-radius:12px;padding:13px}.metric b{display:block;font-size:17px}.metric span{font-size:11px;color:#6a717a}.cta{display:inline-block;background:#16192C;color:white;text-decoration:none;padding:12px 18px;border-radius:99px;font-size:13px;font-weight:700}.foot{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:24px;color:#6e737b;font-size:13px}.backtop{position:fixed;bottom:24px;right:24px;width:50px;height:50px;border-radius:50%;background:#16192C;color:#fff;border:0;font-size:23px;box-shadow:0 6px 24px #0002}.section-gap{margin-top:12px}@media(max-width:980px){.c4,.c5,.c6,.c7,.c8{grid-column:span 12}.hero-screen{min-height:300px}.heading{display:block}.heading p{margin-top:12px}}@media(max-width:600px){.wrap{padding:18px 12px 65px}.card{padding:19px;border-radius:18px}.two-col,.insights,.mockrow{grid-template-columns:1fr}.two-col>div+div{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}.heading h1{font-size:40px}.meta div{align-items:start}.snapshot-tabs button{font-size:10px;padding:9px 2px}.metrics{grid-template-columns:1fr 1fr}.foot{display:block}.top .brand{font-size:19px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 0;z-index:90}
+#cover{position:fixed;inset:0;z-index:100;pointer-events:none}#cover .pn{position:absolute;inset:0;display:grid;place-items:center}#cover .g{background:#5FC322}#cover .o{background:#F57920}#cover .b{background:#4C6FFF;color:#fff;font-size:clamp(44px,9vw,130px);font-weight:800;letter-spacing:-.07em}
+#cover i{font-style:normal;color:var(--accent)}
+.secnav{position:sticky;top:10px;z-index:40;display:flex;gap:4px;overflow-x:auto;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:99px;padding:5px;margin:0 auto 22px;width:max-content;max-width:100%;scrollbar-width:none}
+.secnav a{white-space:nowrap;text-decoration:none;font-size:12px;font-weight:700;padding:8px 13px;border-radius:99px;color:#667085;transition:background .3s,color .3s}
+.secnav a.on{background:#16192C;color:#fff}
+.grid>section{scroll-margin-top:84px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.rv.in{opacity:1;transform:none}
+.card:hover{box-shadow:0 18px 40px rgba(24,27,40,.08)}
+.mock img{cursor:zoom-in}
+.ph{display:grid;place-items:center;min-height:190px;height:100%;border:1.5px dashed #c5c8d0;border-radius:8px;color:#8a909a;font-size:12px;text-align:center;padding:16px;background:repeating-linear-gradient(45deg,#F7F9FC,#F7F9FC 10px,#EDF2F7 10px,#EDF2F7 20px)}
+#lb{position:fixed;inset:0;z-index:95;background:rgba(20,22,30,.9);display:none;place-items:center;padding:4vw;cursor:zoom-out}
+#lb.open{display:grid;animation:lbin .3s}
+#lb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px #0008}
+@keyframes lbin{from{opacity:0}}
+.laptop{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform:perspective(1100px) rotateY(calc(var(--ry,0)*1deg)) rotateX(calc(var(--rx,0)*1deg))}
+.sitefr{border:1px solid #e7e9ef;border-radius:14px;overflow:hidden;background:#fff;max-width:520px}
+.sitefr .bar{display:flex;gap:6px;padding:10px 12px;background:#f1f2f4}
+.sitefr .bar i{width:9px;height:9px;border-radius:50%;background:#cfd2d9}
+.sitefr .scroll{max-height:540px;overflow:auto;overscroll-behavior:contain}
+.sitefr img{display:block;width:100%}
+.hint{font-size:12px;color:var(--muted)}
+.story{cursor:default}.story .step{transition:background .3s,color .3s,border-color .3s}.story:hover .step{background:var(--accent);color:#fff;border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.laptop{transform:none!important}}
+
+/* ---- button interactions ---- */
+.btn,.cta,.top a,.backtop,[role=tab],.secnav a,.close,.list button{transition:translate .35s cubic-bezier(.2,.8,.2,1),scale .2s,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background-color .3s,color .3s,border-color .3s,padding .35s cubic-bezier(.2,.8,.2,1)}
+:is(button,a.cta,.top a):active{scale:.95}
+.cta:hover,.top a:hover,.backtop:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(22,25,44,.16)}
+.cta:hover{background:var(--accent)}
+.top a:hover,.backtop:hover{border-color:var(--accent);color:var(--accent)}
+[role=tab]:hover{transform:translateY(-1px)}
+.secnav a:hover:not(.on){background:#E4ECF7;color:#16192C}
+.close:hover{transform:rotate(90deg);color:var(--accent)}
+.btn:before{content:"\2190";display:inline-block;margin-right:7px;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn:hover{color:var(--accent)}.btn:hover:before{transform:translateX(-5px)}
+.idx button span:last-child{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.idx button:hover span:last-child,.idx button.hl span:last-child{transform:translate(4px,-4px)}
+.list button:hover{padding-left:10px}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.22;transform:scale(0);animation:rp .65s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.mag{translate:var(--tx,0px) var(--ty,0px)}
+@media(prefers-reduced-motion:reduce){.ripple{display:none}.btn,.cta,.top a,.backtop,[role=tab],.close{transition:none}.mag{translate:none}}
+
+/* ---- design screens box + viewer ---- */
+.stack{all:unset;box-sizing:border-box;cursor:pointer;display:block;position:relative;width:100%;aspect-ratio:16/10;border-radius:14px;outline-offset:6px}
+.stack:focus-visible{outline:2px solid var(--accent)}
+.tstack{position:absolute;inset:0;display:block}
+.tstack .t{position:absolute;width:62%;aspect-ratio:16/10;border-radius:10px;border:1px solid #E4ECF7;background:#fff;box-shadow:0 14px 34px rgba(22,25,44,.12);overflow:hidden;transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.tstack .t img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.tstack .t.empty{background:linear-gradient(135deg,#EDF2F7,#fff)}
+.tstack .t.empty:before{content:"";position:absolute;left:8%;top:12%;width:44%;height:9%;border-radius:4px;background:var(--blue)}
+.tstack .t.empty:after{content:"";position:absolute;left:8%;top:30%;right:8%;bottom:12%;border-radius:6px;background:repeating-linear-gradient(#E4ECF7 0 10px,transparent 10px 20px)}
+.tstack .t:nth-child(1){left:0;top:20%;transform:rotate(-4deg)}
+.tstack .t:nth-child(2){left:19%;top:10%;transform:rotate(1deg)}
+.tstack .t:nth-child(3){left:38%;top:0;transform:rotate(4deg)}
+.stack:hover .t:nth-child(1){transform:translate(-14px,10px) rotate(-7deg)}
+.stack:hover .t:nth-child(2){transform:translateY(-6px) rotate(1deg)}
+.stack:hover .t:nth-child(3){transform:translate(14px,-8px) rotate(7deg)}
+.stack:hover .t{box-shadow:0 22px 44px rgba(22,25,44,.18)}
+.tap{position:absolute;left:0;bottom:-2px;font-size:12px;font-weight:700;color:var(--muted)}
+.tap b{color:var(--accent)}
+#sv{position:fixed;inset:0;z-index:96;background:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,transparent .8px);background-size:24px 24px;display:flex;flex-direction:column}
+#sv[hidden]{display:none}
+.sv-top{display:flex;align-items:center;gap:16px;padding:14px max(20px,3vw);background:rgba(247,249,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.sv-top b{font-size:15px;letter-spacing:-.02em}.sv-top span{color:var(--muted);font-size:13px}
+.sv-top .sp{flex:1}
+.sv-top .close{position:static;font-size:26px;padding:4px 12px}
+.sv-bar{height:3px;background:#E4ECF7}.sv-bar i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 0}
+.sv-scroll{flex:1;overflow-y:auto;scroll-behavior:smooth;padding:32px max(20px,3vw) 80px}
+.sv-fig{max-width:1100px;margin:0 auto 44px}
+.sv-fig figcaption{display:flex;gap:12px;align-items:baseline;margin-bottom:12px;font-size:13px;color:var(--muted)}
+.sv-fig figcaption b{color:var(--ink);font-size:15px}
+.sv-fig img{display:block;width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(22,25,44,.1);background:#fff}
+.sv-fig .ph{min-height:340px}
+@media(max-width:700px){.tap{position:static;display:block;margin-top:10px}.stack{margin-bottom:26px}}
+@media(prefers-reduced-motion:reduce){.sv-scroll{scroll-behavior:auto}}
+#progress{top:var(--sx-h,67px)}.secnav{top:calc(var(--sx-h,67px) + 10px)}.grid>section{scroll-margin-top:calc(var(--sx-h,67px) + 76px)}
+
+/* ---- laptop with scrolling screen (Design decision 01) ---- */
+.lap-scroll{width:100%;max-width:760px;margin:20px auto 14px;filter:drop-shadow(0 22px 20px rgba(24,27,40,.16))}
+.lap-lid{position:relative;border:9px solid #252934;border-bottom-width:12px;border-radius:16px 16px 5px 5px;background:#252934;overflow:hidden}
+.lap-cam{position:absolute;top:-6px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#555b69;z-index:3}
+.lap-screen{aspect-ratio:16/10;overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none;overscroll-behavior:auto;border-radius:3px;outline-offset:-3px}
+.lap-screen::-webkit-scrollbar{display:none}
+.lap-screen img{display:block;width:100%;height:auto}
+.lap-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;display:flex;gap:7px;align-items:center;background:rgba(22,25,44,.88);color:#fff;font-size:12px;font-weight:700;padding:8px 14px;border-radius:99px;pointer-events:none;transition:opacity .4s,transform .4s;white-space:nowrap}
+.lap-hint i{font-style:normal;display:inline-block;animation:lapb 1.4s ease-in-out infinite}
+@keyframes lapb{50%{transform:translateY(4px)}}
+.lap-scroll.scrolled .lap-hint{opacity:0;transform:translateX(-50%) translateY(10px)}
+.lap-bar{position:absolute;top:8px;right:6px;bottom:8px;width:4px;border-radius:4px;background:rgba(22,25,44,.1);z-index:3;pointer-events:none}
+.lap-bar i{display:block;width:100%;height:28%;border-radius:4px;background:var(--blue);transform:translateY(0)}
+.lap-base{width:104%;height:13px;margin-left:-2%;background:linear-gradient(#e1e3e7,#9fa5b1);border-radius:0 0 65% 65%;box-shadow:0 3px 2px #b4b7c1}
+@media(prefers-reduced-motion:reduce){.lap-hint i{animation:none}}
+
+.lap-scroll.noscroll .lap-hint,.lap-scroll.noscroll .lap-bar{display:none}
+.card .lap-scroll{margin:16px auto 12px}
+.sv-fig .lap-scroll{max-width:980px;margin:0 auto}
+.sv-fig .lap-screen img{border:0;border-radius:0;box-shadow:none;background:#fff}
+.sv-fig .lap-screen .ph{border-radius:0;min-height:100%;height:100%}
+
+/* only the Design decision 01 laptop scrolls; every other laptop shows a fixed screen */
+.lap-scroll:not(.lap-live) .lap-screen{overflow:hidden}
+.lap-scroll:not(.lap-live) .lap-screen img{height:100%;object-fit:cover;object-position:top center;cursor:zoom-in}
+.lap-scroll:not(.lap-live) .lap-hint,.lap-scroll:not(.lap-live) .lap-bar{display:none}
+#lb{z-index:98;overflow:auto;place-items:start center}
+#lb img{max-width:min(100%,1300px);max-height:none;height:auto;cursor:zoom-out}
+.secnav a.sec-back{background:#EDF2F7;color:#16192C;margin-right:4px}
+
+.snapshot-tabs{overflow-x:auto;scrollbar-width:none;max-width:100%}.snapshot-tabs::-webkit-scrollbar{display:none}.snapshot-tabs button{white-space:nowrap;flex:none}
+@media(min-width:901px) and (max-width:1240px){.snapshot-tabs{display:grid!important;grid-template-columns:repeat(2,1fr);border-radius:22px;overflow:visible}.snapshot-tabs button{font-size:11px!important;padding:9px 6px!important;min-width:0}}
+.ext-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.cta.ghost{background:transparent;color:#16192C;box-shadow:inset 0 0 0 1.5px #16192C}.cta.ghost:hover{background:#16192C;color:#fff}
+.lid.vid{position:relative;background:#fff}.lid.vid video{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;cursor:pointer}
+.vid-toggle{position:absolute;left:10px;bottom:10px;border:0;border-radius:99px;padding:7px 12px;font:700 11px/1 inherit;background:rgba(22,25,44,.82);color:#fff;cursor:pointer;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s,background .2s;backdrop-filter:blur(6px)}
+.lid.vid:hover .vid-toggle,.vid-toggle:focus-visible,.lid.vid.paused .vid-toggle{opacity:1;transform:none}.vid-toggle:hover{background:#F57920}
+@media(hover:none){.vid-toggle{opacity:1;transform:none}}
+.vid-missing{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;background:rgba(247,249,252,.94);color:#16192C;font-size:13px;font-weight:600}
+</style><link rel="stylesheet" href="assets/site.css">
+</head><body class="inner"><div class="sx-shell"><script src="assets/site.js"></script><div id="progress"></div><div id="cover" aria-hidden="true"><div class="pn g"></div><div class="pn o"></div><div class="pn b"><span>E-notifiers<i>.</i></span></div></div><div id="lb" role="dialog" aria-label="Enlarged image"><img alt=""></div><div id="page"><main class="wrap" id="top">
+<nav class="top"><a href="work.html" class="back">← Back to all work</a></nav>
+<nav class="secnav" id="secnav" aria-label="Case study sections"></nav>
+<header class="heading"><div><div class="eyebrow">Selected work / 01 — Product design case study</div><h1>E-notifiers<span style="color:var(--accent)">.</span></h1><p>Making complex email workflows feel simple — from campaign creation to delivery and performance tracking.</p><div class="ext-links"><a class="cta" href="https://enotifiers.com/" target="_blank" rel="noopener noreferrer">Visit live site ↗</a></div></div><span class="pill">V1 launched · Two-person design team</span></header>
+<div class="grid">
+<section class="card c4"><div class="eyebrow">◇ Overview</div><p>E-notifiers is a business communication platform for creating, scheduling, and monitoring email campaigns, with future plans for SMS and WhatsApp.</p><p>I worked with one other designer at Mindorigin Technologies to shape the product from the ground up.</p><dl class="meta"><div><dt>Type</dt><dd>Web-based SaaS</dd></div><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Team</dt><dd>2 designers</dd></div><div><dt>Focus</dt><dd>Campaigns · Analytics · Subscribers</dd></div><div><dt>Delivery</dt><dd>Version 1 launched</dd></div></dl></section>
+<section class="card c4"><div class="eyebrow">◇ Project snapshot</div><div class="snapshot-tabs" role="tablist" aria-label="Project snapshot"><button role="tab" aria-selected="false" data-tab="results">RESULTS</button><button role="tab" aria-selected="false" data-tab="goal">GOAL</button><button role="tab" aria-selected="false" data-tab="challenge">CHALLENGE</button><button role="tab" aria-selected="true" data-tab="outcome">OUTCOME</button></div><div class="tab-panel" id="results" hidden><h3>What we delivered</h3><p>Campaign creation, preview and review, scheduling, subscribers, and an analytics dashboard. The Support screen was designed for a later release.</p></div><div class="tab-panel" id="goal" hidden><h3>The goal</h3><p>Make it straightforward to create email campaigns without limiting users who want more control over content and delivery.</p></div><div class="tab-panel" id="challenge" hidden><h3>The challenge</h3><p>Bring several related tasks together under a tight timeline while balancing client requirements and ease of use.</p></div><div class="tab-panel" id="outcome"><h3>From concept to launch.</h3><p>Version 1 launched while I was working on the product. The client praised the clarity of the designs and the straightforward campaign steps.</p><small>Qualitative client feedback; no measured usability or performance improvements claimed.</small></div></section>
+<section class="card c4 hero-screen"><div class="laptop" aria-label="E-notifiers screen recording in a laptop-style frame"><div class="lid vid"><video id="walk" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/video-enotifiers-walkthrough-poster.jpg" aria-label="Screen recording walking through the E-notifiers product website"><source src="assets/video-enotifiers-walkthrough.mp4" type="video/mp4"></video><button class="vid-toggle" type="button" id="walkBtn" aria-label="Pause screen recording">❚❚ Pause</button></div><div class="base"></div></div></section>
+<section class="card c6 section-gap"><div class="eyebrow">⌕ Discovery & exploration</div><h2>Learning before designing.</h2><div class="two-col"><div><div class="fact"><b>02</b><p><strong>Platforms explored</strong>Mailchimp and Brevo</p></div><div class="fact"><b>02</b><p><strong>Key opportunities</strong>Reduce navigation and expand template flexibility</p></div><div class="fact"><b>01</b><p><strong>Collaborative planning approach</strong>Whiteboard brainstorming and priorities</p></div></div><div><div class="eyebrow">Our design direction</div><h3>Less navigation. More choice.</h3><p>We explored existing campaign workflows and template experiences, then discussed how E-notifiers could keep related tasks together while giving users more creative options.</p><p>With a tight timeline, we moved directly into high-fidelity design rather than a separate low-fidelity wireframing phase.</p></div></div></section>
+<section class="card c6 section-gap"><div class="eyebrow">◎ Design opportunities</div><h2>From observation to action.</h2><div class="insights"><div class="insight"><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>01</strong><span>Reduce screen switching</span><p>Keep campaign setup in one continuous form, then introduce a deliberate review step.</p></div><div class="insight"><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>02</strong><span>Support creative flexibility</span><p>Offer varied predefined layouts and a blank starting point. Original gallery visuals remain confidential.</p></div><div class="insight"><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>03</strong><span>Make performance scannable</span><p>Separate campaign overview, delivery health, and campaign-level results.</p></div><div class="insight"><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>04</strong><span>Keep users in control</span><p>Allow editing before sending and show actions appropriate to campaign status.</p></div></div></section>
+<section class="card c7 section-gap"><div class="eyebrow">◇ Design decision / 01</div><h2>One workflow.<br>Fewer interruptions.</h2><p>We brought recipients, sender information, content, and delivery settings into a single creation page. Users could save drafts and return later.</p><div class="lap-scroll lap-live"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Long campaign creation screen showing subscriber selection, sender details, email content and delivery scheduling"><img loading="lazy" src="assets/create.webp" alt="Long campaign creation screen showing subscriber selection, sender details, email content and delivery scheduling"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><small>Approved product screen · Example account information obscured</small></section>
+<section class="card c5 section-gap"><div class="eyebrow">↳ Interaction decisions</div><h2>Every extra step needed a reason.</h2><div class="story"><span class="step">01</span><div><h3>Configure in one place</h3><p>Recipients, content, and delivery options are grouped by task.</p></div></div><div class="story"><span class="step">02</span><div><h3>Preview before proceeding</h3><p>Review the email creative alongside audience, subject, sender, and scheduled delivery.</p></div></div><div class="story"><span class="step">03</span><div><h3>Confirm with control</h3><p>A confirmation popup offered a way to go back and edit or confirm sending/scheduling.</p></div></div><div class="story"><span class="step">04</span><div><h3>Manage after creation</h3><p>Scheduled campaigns offered cancellation; sent campaigns linked to reports.</p></div></div><div class="note"><strong>The trade-off:</strong> A longer creation page reduced switching, while review and confirmation were retained where they supported deliberate decisions.</div></section>
+<section class="card c6 section-gap"><div class="eyebrow">◇ Review & verify</div><h2>See the email. Check the details.</h2><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Campaign preview showing an email creative alongside a structured review of audience, sender, attachments and delivery"><img loading="lazy" src="assets/preview.webp" alt="Campaign preview showing an email creative alongside a structured review of audience, sender, attachments and delivery"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><p>The two-panel review keeps the creative and the campaign settings visible together before the user proceeds.</p></section>
+<section class="card c6 section-gap"><div class="eyebrow">◇ Campaign lifecycle</div><h2>Actions that match the status.</h2><div class="mockrow"><div><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Scheduled campaign details with Cancel Campaign action"><img loading="lazy" src="assets/scheduled.webp" alt="Scheduled campaign details with Cancel Campaign action"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><small>Scheduled → Cancel campaign</small></div><div><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Sent campaign details with View Report action"><img loading="lazy" src="assets/sent.webp" alt="Sent campaign details with View Report action"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><small>Sent → View report</small></div></div><p>The detail layout remains familiar, while the primary action changes with the campaign's state.</p></section>
+<section class="card c7 section-gap"><div class="eyebrow">◇ Design decision / 02</div><h2>Making performance more transparent.</h2><p>The dashboard moves from overview metrics to delivery health and individual campaign reporting. The All, Transactional, and Promotional tabs organize campaign categories.</p><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Approved Email Analytics Dashboard including Spam Report Rate in the delivery section and Spam Rate in the performance table"><img loading="lazy" src="assets/dashboard.webp" alt="Approved Email Analytics Dashboard including Spam Report Rate in the delivery section and Spam Rate in the performance table"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><small>Illustrative product data · Not measured campaign results</small></section>
+<section class="card c5 section-gap"><div class="eyebrow">★ My individual contribution</div><h2>The metric we almost didn't show.</h2><span class="pill">Spam Report Rate</span><p>I proposed adding Spam Report Rate beyond the client's initial dashboard metrics.</p><p>My teammate and I discussed whether a negative metric might worry business users. We decided visibility mattered: complaints could be a signal to revisit communication practices.</p><div class="note">The metric appears in the delivery overview, and Spam Rate is also represented in the campaign performance table.</div><p><strong>The lesson:</strong> Product design also means questioning what information users need—not just arranging what was requested.</p></section>
+<section class="card c4 section-gap"><div class="eyebrow">◇ Outcomes</div><h2>Designed. Developed. Launched.</h2><div class="fact"><b>V1</b><p><strong>Product launched</strong>Core interfaces included in the first release.</p></div><div class="fact"><b>02</b><p><strong>Designers</strong>Small-team collaboration from the beginning.</p></div><p>Support was designed but remained under development for a later version.</p></section>
+
+<section class="card c4 section-gap"><div class="eyebrow">◇ Client feedback</div><h2>Clarity was the compliment.</h2><p class="quote">“The designs were easy to understand, without unnecessary complexity.”</p><small>Paraphrased from recollected client feedback, not a verbatim testimonial.</small><p>The client also felt the campaign steps were easier and faster. This is qualitative feedback, not a measured time reduction.</p></section>
+<section class="card c4 section-gap"><div class="eyebrow">◇ Next steps</div><h2>What I'd test next.</h2><div class="story"><span class="step">01</span><div><h3>First-time usability</h3><p>Can new users navigate the long campaign form confidently?</p></div></div><div class="story"><span class="step">02</span><div><h3>Template discovery</h3><p>Can users find suitable layouts without advanced filters?</p></div></div><div class="story"><span class="step">03</span><div><h3>Metric clarity</h3><p>Would contextual guidance help explain Spam Report Rate?</p></div></div></section>
+<section class="card c12 section-gap" id="screens-box"><div class="eyebrow">◇ Design screens</div><div class="two-col"><div><h2>Every screen, in one scroll.</h2><p>Browse the full set of E-notifiers interface designs, from the analytics dashboard to campaign creation, review and reporting, stacked one below the other.</p><div class="ext-links"><button class="cta" type="button" data-sv>View all screens ↓</button></div></div><button class="stack" type="button" data-sv aria-label="Open all design screens"><span class="tstack" id="tstack"></span><span class="tap">Tap to open · <b id="scount">6</b> screens</span></button></div></section>
+<section class="card c12 section-gap"><div class="eyebrow">◇ Product website</div><div class="two-col"><div><h2>The public face of E-notifiers.</h2><p>The marketing homepage introduces the drag-and-drop template builder, analytics, real-time tracking and API integration, and offers sign-up, a free trial and a demo booking.</p><p class="hint">Scroll inside the screen to explore the full page.</p><div class="ext-links"><a class="cta" href="https://enotifiers.com/" target="_blank" rel="noopener noreferrer">Visit enotifiers.com ↗</a></div></div><div><div class="lap-scroll lap-live"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Full E-notifiers marketing homepage: hero, benefits, pricing, demo form and footer"><img loading="lazy" src="assets/homepage.jpg" alt="Full E-notifiers marketing homepage: hero, benefits, pricing, demo form and footer"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></div></div></section>
+<section class="card c12 section-gap"><div class="eyebrow">◇ Reflection</div><div class="two-col"><div><h2>Good UX isn't always fewer clicks.</h2><p>It's knowing which steps create friction and which help people make informed decisions. E-notifiers taught me to balance continuity, flexibility, and safeguards within real project constraints.</p></div><div><h2>What this project taught me.</h2><p>Working on a product from scratch showed me how collaborative decisions, client requirements, and delivery timelines shape the final experience. My biggest takeaway: simplicity is the result of deliberate choices.</p><a class="cta back" href="work.html">← Explore more projects</a></div></div></section>
+<section class="card c12 section-gap"><div class="eyebrow">◇ Next project</div><div class="two-col"><div><h2>Second Cycle.</h2><p>A research-led decision-support experience that helps people choose between repairing, keeping, replacing or recycling aging devices.</p></div><div style="align-self:end"><a class="cta" href="second-cycle.html">View Second Cycle →</a> <a class="cta" style="background:#fff;color:#16192C;border:1px solid var(--line)" href="work.html">All work</a></div></div></section>
+</div><footer class="foot"><span>© Rajatha Rao V · E-notifiers case study</span><span>Original Template Gallery screens intentionally excluded due to confidentiality.</span></footer></main></div>
+<button class="backtop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(()=>{
+const $=(q,r=document)=>r.querySelector(q),$$=(q,r=document)=>[...r.querySelectorAll(q)];
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const ease="cubic-bezier(.7,0,.2,1)";
+
+/* tabs (click + arrow keys) */
+const tabs=$$("[data-tab]");
+function pick(b){tabs.forEach(x=>x.setAttribute("aria-selected",String(x===b)));$$(".tab-panel").forEach(x=>x.hidden=x.id!==b.dataset.tab)}
+tabs.forEach((b,i)=>{b.addEventListener("click",()=>pick(b));b.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const n=tabs[(i+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length];n.focus();pick(n)}})});
+
+/* page-enter transition */
+const cover=$("#cover"),cs=$("span",cover);
+let viaCard=false;try{viaCard=sessionStorage.getItem("tr")==="card";sessionStorage.removeItem("tr")}catch(_){}
+if(reduce||!viaCard){cover.remove()}else{
+ cs.animate([{opacity:1},{opacity:0}],{duration:350,delay:500,fill:"forwards"});
+ $$(".pn",cover).reverse().forEach((p,k,all)=>{const an=p.animate([{transform:"translateY(0)"},{transform:"translateY(-100%)"}],{duration:800,delay:750+k*130,easing:ease,fill:"forwards"});if(k===all.length-1)an.onfinish=()=>{cover.style.visibility="hidden"}});
+}
+addEventListener("pageshow",e=>{if(e.persisted&&cover)cover.style.visibility="hidden"});
+
+/* scroll progress */
+const bar=$("#progress");
+/* section nav */
+const secs=$$(".grid > section");
+const map=[["Overview",0],["Discovery",3],["Decisions",5],["Dashboard",9],["My contribution",10],["Outcomes",11],["Screens",14],["Website",15],["Reflection",16]];
+const nav=$("#secnav");
+map.forEach(([t,i],n)=>{const s=secs[i];if(!s)return;s.id="s"+n;const a=document.createElement("a");a.href="#s"+n;a.textContent=t;nav.appendChild(a)});
+const links=$$("a",nav);
+const bk=document.createElement("a");bk.href="work.html";bk.className="sec-back";bk.textContent="← All work";nav.prepend(bk);
+function onScroll(){
+ const h=document.documentElement;bar.style.transform=`scaleX(${scrollY/Math.max(1,h.scrollHeight-innerHeight)})`;
+ let cur=0;map.forEach(([t,i],n)=>{const s=secs[i];if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=n});
+ links.forEach((a,n)=>a.classList.toggle("on",n===cur));
+ const on=links[cur];if(on&&nav.scrollWidth>nav.clientWidth)nav.scrollTo({left:on.offsetLeft-40,behavior:"smooth"});
+}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+/* reveal on scroll + count-up */
+function count(el){const t=el.textContent.trim();if(!/^\d+$/.test(t)||reduce)return;const n=+t;let k=0;const id=setInterval(()=>{k++;el.textContent=String(Math.min(n,k)).padStart(2,"0");if(k>=n)clearInterval(id)},140);el.textContent="00"}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;el.style.transitionDelay=(secs.indexOf(el)%3)*90+"ms";el.classList.add("in");$$(".fact b",el).forEach(count);io.unobserve(el)}}),{threshold:.12});
+secs.forEach(s=>{s.classList.add("rv");io.observe(s)});
+
+/* image fallback + lightbox */
+function missing(img){const d=document.createElement("div");d.className="ph";d.textContent="Add image: "+(img.getAttribute("src")||"");img.replaceWith(d)}
+$$("img:not(#lb img)").forEach(i=>{i.addEventListener("error",()=>missing(i));if(i.complete&&i.naturalWidth===0&&i.getAttribute("src"))missing(i)});
+const lb=$("#lb"),lbi=$("img",lb);
+document.addEventListener("click",e=>{const i=e.target.closest(".mock img,.laptop img,.lap-scroll img");if(i&&i.closest(".lap-live"))return;if(!i)return;lbi.src=i.src;lbi.alt=i.alt;lb.classList.add("open")});
+lb.addEventListener("click",()=>lb.classList.remove("open"));
+addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("open")});
+
+/* laptop tilt */
+const hs=$(".hero-screen"),lp=$(".laptop");
+if(hs&&lp&&!reduce){hs.addEventListener("mousemove",e=>{const r=hs.getBoundingClientRect();lp.style.setProperty("--ry",((e.clientX-r.left)/r.width*2-1)*7);lp.style.setProperty("--rx",-((e.clientY-r.top)/r.height*2-1)*5)});hs.addEventListener("mouseleave",()=>{lp.style.setProperty("--ry",0);lp.style.setProperty("--rx",0)})}
+})();
+</script><script>
+(()=>{
+const R=".btn,.close,.list button,.cta,.top a,.backtop,[role=tab],.secnav a",M=".btn,.cta,.top a,.backtop,.close";
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches,hover=matchMedia("(hover:hover)").matches;
+if(!reduce){
+ document.addEventListener("pointerdown",e=>{const b=e.target.closest(R);if(!b)return;
+  if(getComputedStyle(b).position==="static")b.style.position="relative";b.style.overflow="hidden";
+  const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,s=document.createElement("span");
+  s.className="ripple";s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;
+  b.appendChild(s);setTimeout(()=>s.remove(),700)});
+}
+if(!reduce&&hover){
+ document.addEventListener("pointermove",e=>{const b=e.target.closest&&e.target.closest(M);
+  document.querySelectorAll(M+".mag-on").forEach(x=>{if(x!==b){x.classList.remove("mag-on");x.style.setProperty("--tx","0px");x.style.setProperty("--ty","0px")}});
+  if(!b)return;b.classList.add("mag","mag-on");
+  const r=b.getBoundingClientRect();
+  b.style.setProperty("--tx",((e.clientX-r.left-r.width/2)*.22).toFixed(1)+"px");
+  b.style.setProperty("--ty",((e.clientY-r.top-r.height/2)*.3).toFixed(1)+"px")});
+}
+})();
+</script>
+<div id="sv" role="dialog" aria-modal="true" aria-label="All design screens" hidden><div class="sv-top"><b>E-notifiers</b><span>Design screens</span><i class="sp"></i><span id="svc">01 / 06</span><button class="close" id="svx" type="button" aria-label="Close screens">×</button></div><div class="sv-bar"><i id="svp"></i></div><div class="sv-scroll" id="svs" tabindex="0"></div></div>
+<script>
+(()=>{
+/* Add or reorder screens here. Files live in /assets. */
+const SCREENS=[
+ {src:"assets/dashboard.webp",title:"Email analytics dashboard",note:"Overview metrics, delivery section and campaign performance table"},
+ {src:"assets/dashboard-channels.webp",title:"Dashboard with additional channels",note:"Delivery metrics with WhatsApp and SMS campaigns marked Coming Soon"},
+ {src:"assets/emails.webp",title:"My email campaigns",note:"Campaign list with filters, search, sorting and pagination"},
+ {src:"assets/templates-sale.webp",title:"Template gallery",note:"Templates browsed by category, with a blank template option"},
+ {src:"assets/templates-my.webp",title:"My templates",note:"Saved templates with last-modified details"},
+ {src:"assets/create-empty.webp",title:"Create campaign, empty state",note:"AWS connected, with a prompt to choose a template or edit one"},
+ {src:"assets/create.webp",title:"Create campaign, completed",note:"Subscribers, sender details, email content and delivery scheduling"},
+ {src:"assets/preview.webp",title:"Preview and review",note:"Email creative with audience, subject, sender, attachments and delivery"},
+ {src:"assets/scheduled.webp",title:"Scheduled campaign",note:"Campaign details with a Cancel Campaign action"},
+ {src:"assets/sent.webp",title:"Sent campaign",note:"Campaign details with a View Report action"},
+ {src:"assets/report.webp",title:"Campaign report",note:"Statistics overview, email activity and sent log"},
+ {src:"assets/aws-config.webp",title:"AWS configuration",note:"Connection keys, domain verification, verified mails and subscription prompt"},
+ {src:"assets/profile-password.webp",title:"Profile: password",note:"Password update with verification and strength indicator"},
+ {src:"assets/subscription.webp",title:"Profile: subscription",note:"Current plan, usage, members and billing history"},
+ {src:"assets/homepage.jpg",title:"Marketing homepage",note:"Product website with benefits, pricing and demo booking"}
+];
+const $=q=>document.querySelector(q),pad=n=>String(n).padStart(2,"0");
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const sv=$("#sv"),sc=$("#svs"),cnt=$("#svc"),prog=$("#svp"),box=$(".stack");
+$("#scount").textContent=SCREENS.length;
+function ph(img){const d=document.createElement("div");d.className="ph";d.textContent="Add image: "+img.getAttribute("src");img.replaceWith(d)}
+/* thumbnails */
+$("#tstack").innerHTML=[0,6,7].map(()=>'<span class="t"></span>').join("");
+[...document.querySelectorAll("#tstack .t")].forEach((t,k)=>{const im=new Image();im.alt="";im.src=SCREENS[[0,6,7][k]].src;im.onload=()=>t.appendChild(im);im.onerror=()=>t.classList.add("empty")});
+/* viewer content */
+sc.innerHTML=SCREENS.map((x,i)=>`<figure class="sv-fig"><figcaption><b>${pad(i+1)} — ${x.title}</b><span>${x.note}</span></figcaption><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="${x.title}"><img loading="lazy" src="${x.src}" alt="${x.title}: ${x.note}"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></figure>`).join("");
+sc.querySelectorAll("img").forEach(i=>{i.addEventListener("error",()=>ph(i));if(i.complete&&i.naturalWidth===0)ph(i)});
+function update(){
+ const m=sc.scrollHeight-sc.clientHeight;prog.style.transform=`scaleX(${m>0?sc.scrollTop/m:0})`;
+ let cur=0;[...sc.children].forEach((f,k)=>{if(f.offsetTop-sc.scrollTop<sc.clientHeight*.45)cur=k});
+ cnt.textContent=pad(cur+1)+" / "+pad(SCREENS.length);
+}
+sc.addEventListener("scroll",update,{passive:true});
+let from=null;
+function openSv(trigger){
+ from=trigger;sc.scrollTop=0;sv.hidden=false;update();window.sxLaps&&window.sxLaps();
+ document.documentElement.style.overflow="hidden";
+ document.querySelectorAll("main,#secnav").forEach(x=>x.inert=true);
+ if(!reduce){const r=(box||trigger).getBoundingClientRect();
+  sv.animate([{clipPath:`inset(${r.top}px ${innerWidth-r.right}px ${innerHeight-r.bottom}px ${r.left}px round 14px)`},{clipPath:"inset(0 0 0 0 round 0px)"}],{duration:650,easing:"cubic-bezier(.7,0,.2,1)"});
+  [...sc.children].slice(0,2).forEach((f,k)=>f.animate([{opacity:0,transform:"translateY(30px)"},{opacity:1,transform:"none"}],{duration:600,delay:350+k*120,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"}))}
+ $("#svx").focus({preventScroll:true});
+}
+function closeSv(){
+ const end=()=>{sv.hidden=true;document.documentElement.style.overflow="";document.querySelectorAll("main,#secnav").forEach(x=>x.inert=false);from&&from.focus({preventScroll:true})};
+ if(reduce){end();return}
+ sv.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateY(24px)"}],{duration:350,easing:"ease-in"}).onfinish=end;
+}
+document.querySelectorAll("[data-sv]").forEach(b=>b.addEventListener("click",()=>openSv(b)));
+$("#svx").addEventListener("click",closeSv);
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!sv.hidden){if(document.getElementById("lb").classList.contains("open"))return;e.stopPropagation();closeSv()}},true);
+})();
+</script>
+<script>
+(()=>{
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const all=()=>[...document.querySelectorAll(".lap-live")];
+function setup(w){
+ if(w._lap)return;w._lap=1;
+ const sc=w.querySelector(".lap-screen"),bar=w.querySelector(".lap-bar i");
+ const upd=()=>{const m=sc.scrollHeight-sc.clientHeight;if(!sc.clientHeight)return;w.classList.toggle("noscroll",m<=60);if(m<=60)return;
+  const t=bar.parentElement.clientHeight,h=Math.max(28,sc.clientHeight/sc.scrollHeight*t);bar.style.height=h+"px";bar.style.transform=`translateY(${sc.scrollTop/m*(t-h)}px)`;if(sc.scrollTop>24)w.classList.add("scrolled")};
+ w._upd=upd;sc.addEventListener("scroll",upd,{passive:true});
+ const im=sc.querySelector("img");if(im)im.addEventListener("load",upd);upd();
+ if(!reduce&&!w.closest("#sv")){let done=false;new IntersectionObserver((es,io)=>es.forEach(e=>{if(e.isIntersecting&&!done){done=true;io.disconnect();
+  setTimeout(()=>{if(sc.scrollTop>0||sc.scrollHeight-sc.clientHeight<=80)return;sc.scrollTo({top:130,behavior:"smooth"});setTimeout(()=>{if(sc.scrollTop<=140)sc.scrollTo({top:0,behavior:"smooth"})},900)},450)}}),{threshold:.6}).observe(w)}
+}
+window.sxLaps=()=>{all().forEach(setup);all().forEach(w=>w._upd&&w._upd())};
+sxLaps();addEventListener("resize",()=>all().forEach(w=>w._upd&&w._upd()));
+})();
+
+/* screen recording: autoplay only while visible, respect reduced motion */
+(()=>{const v=document.getElementById("walk"),btn=document.getElementById("walkBtn");if(!v||!btn)return;const box=v.parentElement;const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;let user=rm;
+const set=()=>{const p=v.paused;box.classList.toggle("paused",p);btn.textContent=p?"▶ Play":"❚❚ Pause";btn.setAttribute("aria-label",p?"Play screen recording":"Pause screen recording")};
+const play=()=>{const r=v.play();if(r&&r.catch)r.catch(()=>{})};
+const src=v.querySelector("source");const fail=()=>{if(box.querySelector(".vid-missing"))return;const m=document.createElement("div");m.className="vid-missing";m.textContent="Video file not found. Keep the video folder next to this page, or open enotifiers-standalone.html.";box.appendChild(m);btn.style.display="none"};
+src.addEventListener("error",fail);v.addEventListener("error",fail);
+btn.addEventListener("click",e=>{e.stopPropagation();if(v.paused){user=false;play()}else{user=true;v.pause()}set()});
+v.addEventListener("click",()=>btn.click());v.addEventListener("play",set);v.addEventListener("pause",set);
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!user)play()}else v.pause()}),{threshold:.35}).observe(v);set();})();
+</script>
+</div></body></html>

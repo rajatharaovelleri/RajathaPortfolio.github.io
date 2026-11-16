@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173b2d"><title>Second Cycle — UX Case Study | Rajatha Rao V</title><meta name="description" content="Second Cycle: an interactive UX research and product design case study by Rajatha Rao V.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--forest:#173b2d;--forest2:#275740;--mint:#b6d4b9;--cream:#f6f2e9;--paper:#fffcf7;--ink:#1c2b24;--muted:#65746a;--line:#d9e1d7;--orange:#dd975b;--r:22px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}button,a{font:inherit}a{color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:3px}img{max-width:100%;display:block}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.05em}h1{font-size:clamp(4.2rem,10vw,10.7rem);line-height:.95;margin:18px 0 26px}h2{font-size:clamp(2.3rem,5vw,5.5rem);line-height:1.08;margin:0 0 22px}h3{font-size:clamp(1.25rem,2vw,2rem);margin:0 0 12px}p{line-height:1.7}small,.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}.eyebrow{color:#57836b}.wrap{width:min(1250px,calc(100% - 72px));margin:auto}.section{padding:118px 0;scroll-margin-top:90px}.section-heading{max-width:850px;margin-bottom:42px}.lead{font-size:clamp(1.12rem,2vw,1.4rem);line-height:1.6;color:var(--muted)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 4vw;position:sticky;top:0;z-index:100;background:rgba(246,242,233,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}.nav a{text-decoration:none}.brand{font-weight:800;letter-spacing:-.06em;font-size:1.15rem}.nav-links{display:flex;gap:22px;align-items:center}.nav-links a{font-size:.82rem;color:#53645a}.nav-links a:hover{color:var(--forest)}.pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:100px;background:var(--forest);color:#fff;padding:14px 22px;text-decoration:none;border:1px solid var(--forest);font-weight:700;font-size:.85rem}.pill:hover{background:#2c6548}.pill.light{background:transparent;color:var(--forest)}.progress{height:3px;position:fixed;top:76px;left:0;z-index:101;width:0;background:var(--orange);transition:width .1s linear}.hero{background:var(--forest);color:#fff;overflow:hidden;position:relative}.hero:before{content:"";position:absolute;width:70vw;height:70vw;border:1px solid #ffffff18;border-radius:50%;right:-24vw;top:-26vw;box-shadow:0 0 0 8vw #ffffff05,0 0 0 16vw #ffffff03;pointer-events:none}.hero-inner{padding:90px 0 40px;position:relative}.hero .eyebrow{color:var(--mint)}.hero h1 span{color:#bdd4bf}.hero-sub{display:flex;justify-content:space-between;gap:36px;align-items:end;margin-bottom:50px}.hero-sub p{max-width:640px;font-size:1.25rem;color:#d4e0d6}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-actions .pill{background:#e5eecf;color:var(--forest);border-color:#e5eecf}.hero-actions .pill.light{background:transparent;color:#fff;border-color:#8cab99}.hero-shot{position:relative;border-radius:20px 20px 0 0;background:#eae5d9;padding:17px 17px 0;box-shadow:0 22px 65px #0004;max-width:1080px;margin:auto}.browserbar{display:flex;gap:7px;align-items:center;height:28px}.browserbar i{width:8px;height:8px;border-radius:50%;background:#a8ada6}.browserbar span{margin-left:auto;margin-right:auto;color:#69736a;font-size:11px}.hero-shot img{width:100%;height:430px;object-fit:cover;object-position:top;border-radius:8px 8px 0 0}.meta{background:#eaece2;border-bottom:1px solid var(--line)}.meta-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:20px;padding:30px 0}.meta-grid b{display:block;margin-top:10px;font-size:.95rem}.meta-grid small{color:#6d796d}.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.problem-panel{background:var(--forest);color:#fff;padding:38px;border-radius:var(--r);position:relative;min-height:350px;display:flex;flex-direction:column;justify-content:space-between}.problem-panel .bigquote{font-family:Manrope;font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.3;letter-spacing:-.05em}.scenario{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:30px}.scenario h3{font-size:1.45rem}.choices{display:grid;gap:9px;margin:20px 0}.choice{border:1px solid #b9cbbd;background:#fff;padding:15px;text-align:left;border-radius:12px;display:flex;justify-content:space-between;align-items:center}.choice:hover,.choice.active{background:#e3eee3;border-color:var(--forest)}.choice.active:after{content:'✓';font-weight:800}.scenario-result{background:#e9f1e8;border-left:3px solid var(--forest2);padding:18px;border-radius:8px;min-height:108px}.scenario-result p{margin:8px 0 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:28px 24px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}.stat strong{display:block;font:800 clamp(2.3rem,4vw,4.5rem)/1 Manrope;color:var(--forest);letter-spacing:-.07em}.stat span{display:block;margin-top:12px;font-weight:700}.stat p{font-size:.83rem;color:var(--muted);margin:6px 0 0}.insights{display:grid;grid-template-columns:300px 1fr;gap:24px;margin-top:34px}.tabs{display:flex;flex-direction:column;gap:8px}.tab{border:1px solid var(--line);background:#fffaf2;text-align:left;border-radius:13px;padding:19px;font-weight:700;color:#54665a}.tab.active{background:var(--forest);color:#fff}.insight-content{background:#e8eee4;border-radius:20px;padding:40px;min-height:300px;display:flex;flex-direction:column;justify-content:center}.insight-content .eyebrow{margin-bottom:20px}.insight-content p{font-size:1.1rem}.insight-content .response{padding:16px 20px;background:#fff;border-radius:12px;margin-top:10px;font-size:.94rem}.dark{background:#173b2d;color:#fff}.dark .lead{color:#c3d6c8}.dark .eyebrow{color:#b3d0b7}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.process article{border:1px solid #ffffff35;padding:26px;border-radius:18px;background:#ffffff0b}.process article b{font:800 2.5rem Manrope;color:#b6d4b9}.process article p{font-size:.88rem;color:#c9d8cf;margin-bottom:0}.research-card{margin-top:32px;background:#ffffff10;border:1px solid #ffffff24;border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:30px}.research-card p{color:#d1e0d6}.chip{display:inline-block;border:1px solid #a6bfa9;padding:7px 11px;border-radius:30px;font-size:.77rem;margin:4px}.feature{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;margin:90px 0}.feature:nth-child(even) .feature-img{order:-1}.feature-copy{max-width:490px}.feature-copy .num{font-size:.78rem;color:#6e9278;font-weight:800;letter-spacing:.12em}.feature-img{background:#e2e9de;border:1px solid #cdd7cb;border-radius:24px;padding:24px;overflow:hidden;box-shadow:0 20px 40px #173b2d12}.feature-img img{width:100%;max-height:530px;object-fit:cover;object-position:top;border-radius:10px;cursor:zoom-in}.feature-img img:hover{transform:scale(1.015);transition:transform .3s}.feature-bullets{list-style:none;padding:0}.feature-bullets li{border-top:1px solid var(--line);padding:13px 0;font-size:.95rem}.feature-bullets li:before{content:'↗';color:var(--forest2);margin-right:12px}.demo{background:#e9eee6;border-radius:24px;padding:30px;border:1px solid #cbd8cb}.demo-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}.demo label{font-size:.85rem;font-weight:700}.demo select{display:block;width:100%;margin-top:8px;padding:14px;background:#fff;border:1px solid #a8b9ac;border-radius:9px;font:inherit;color:var(--ink)}.demo-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.demo-result{background:#fff;border:1px solid #c8d8c8;border-radius:14px;padding:22px}.demo-result strong{font-size:1.05rem}.demo-result .bar{height:8px;background:#e5eae4;border-radius:10px;overflow:hidden;margin:17px 0}.demo-result .bar i{display:block;height:100%;background:var(--forest2);width:60%;border-radius:10px;transition:width .35s}.demo-result .value{font:800 2.2rem Manrope;color:var(--forest)}.demo-result p{font-size:.85rem;color:var(--muted);margin-bottom:0}.notice{font-size:.79rem;color:#5f7163;margin-top:18px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.gallery button{border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden;text-align:left;padding:0}.gallery img{width:100%;height:245px;object-fit:cover;object-position:top;transition:transform .3s}.gallery button:hover img{transform:scale(1.04)}.gallery strong{display:block;padding:18px 18px 4px}.gallery span{display:block;color:var(--muted);font-size:.82rem;padding:0 18px 20px}.testing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.testing article{border:1px solid #a2b6a5;border-radius:18px;padding:28px;background:#fff}.testing strong{font:800 4rem Manrope;letter-spacing:-.07em;color:var(--forest)}.testing h3{margin:12px 0;font-size:1.2rem}.testing p{font-size:.9rem;color:var(--muted)}.testing article.warning{background:#f8eadb;border-color:#dfb98f}.testing article.warning strong{color:#965b2d}.reflection{display:grid;grid-template-columns:1fr 1fr;gap:22px}.reflection article{padding:30px;border:1px solid var(--line);border-radius:18px;background:#fff}.reflection ul{padding-left:20px;line-height:1.9}.foot{background:#112c22;color:#fff;padding:70px 0}.foot h2{font-size:clamp(2rem,5vw,5rem)}.foot p{color:#c6d6ca}.foot .pill{background:#d9e8d1;color:#173b2d}.foot-bottom{border-top:1px solid #ffffff2c;margin-top:45px;padding-top:25px;display:flex;justify-content:space-between;color:#bbd0c1;font-size:.85rem}.lightbox{position:fixed;inset:0;background:#0a1a12eb;z-index:200;display:none;align-items:center;justify-content:center;padding:60px 24px 30px}.lightbox.open{display:flex}.lightbox img{max-height:90vh;max-width:90vw;object-fit:contain;border-radius:8px}.close{position:absolute;right:24px;top:20px;border:1px solid #ffffff66;background:#fff;color:#173b2d;border-radius:50%;width:44px;height:44px;font-size:26px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.fade{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}.fade.visible{opacity:1;transform:none}
+@media(max-width:850px){.wrap{width:min(100% - 36px,680px)}.nav{height:65px;padding:0 18px}.progress{top:65px}.nav-links{gap:12px}.nav-links a:nth-child(2),.nav-links a:nth-child(3),.nav-links a:nth-child(4){display:none}.section{padding:75px 0}.hero-inner{padding:70px 0 24px}.hero-sub{display:block}.hero-actions{margin-top:24px}.hero-shot img{height:260px}.meta-grid,.stats,.process{grid-template-columns:repeat(2,1fr)}.split,.feature,.research-card,.reflection{grid-template-columns:1fr;gap:28px}.feature:nth-child(even) .feature-img{order:0}.insights{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto}.tab{white-space:nowrap}.demo-controls,.demo-results,.testing,.gallery{grid-template-columns:1fr 1fr}.feature{margin:50px 0}}@media(max-width:540px){h1{font-size:clamp(3.5rem,15vw,5rem)}.nav-links a:first-child{display:none}.hero-sub p{font-size:1rem}.meta-grid,.stats,.process,.demo-controls,.demo-results,.testing,.gallery{grid-template-columns:1fr}.feature-img{padding:12px}.feature-img img{max-height:430px}.insight-content{padding:25px}.foot-bottom{display:block}.hero-shot img{height:205px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+
+/* V11 readability refinement: higher contrast without changing theme or copy */
+:root{--muted:#45584b}
+.eyebrow{color:#315c40}
+.lead{color:#465a4d}
+.meta-grid small,.nav-links a,.feature-copy .num,.notice,.gallery span,.stat p,.demo-result p,.testing p{color:#45594c}
+.stat p,.demo-result p,.testing p,.gallery span,.notice{font-size:max(.88rem, 14px);line-height:1.65}
+.scenario{color:#1c2b24}
+.scenario .eyebrow{color:#315c40}
+.scenario h3,.scenario p,.scenario-result,.scenario-result b,.scenario-result p{color:#203a2a}
+.scenario p[style]{color:#45584b!important}
+.scenario .choice{color:#203a2a;font-weight:600}
+.scenario .choice:hover,.scenario .choice.active{color:#173b2d}
+.scenario .notice{color:#425648}
+.insight-content .eyebrow{color:#315c40}
+.tab:not(.active){color:#344d3b}
+.dark .eyebrow,.hero .eyebrow{color:#c6e1ca}
+.dark .lead,.dark .process article p,.dark .research-card p{color:#e0ece3}
+
+</style><style id="v9-ui-refinements">
+/* V9 visual refinement: spacing, type scale and alignment only. No content or interactions changed. */
+:root{--r:18px}
+.wrap{width:min(1180px,calc(100% - 64px))}
+.section{padding:76px 0;scroll-margin-top:88px}
+.section-heading{max-width:780px;margin-bottom:30px}
+h1,h2,h3{letter-spacing:-.042em;text-wrap:balance}
+h1{font-size:clamp(3.75rem,7.2vw,7.1rem);line-height:1.02;margin:12px 0 20px}
+h2{font-size:clamp(2.15rem,3.65vw,3.75rem);line-height:1.14;margin:0 0 16px}
+h3{font-size:clamp(1.18rem,1.6vw,1.55rem);line-height:1.27;margin:0 0 10px}
+p{font-size:1rem;line-height:1.62;margin-bottom:14px}
+small,.eyebrow{font-size:.78rem;letter-spacing:.105em}
+.lead{font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.58}
+.nav{height:70px;padding:0 max(32px,calc((100vw - 1180px)/2))}
+.progress{top:70px}
+.nav-links a{font-size:.9rem}
+.pill{padding:12px 19px;font-size:.9rem}
+.hero-inner{padding:64px 0 26px}
+.hero-sub{gap:24px;align-items:center;margin-bottom:32px}
+.hero-sub p{max-width:610px;font-size:1.14rem;line-height:1.55;margin-bottom:0}
+.hero-shot{max-width:1000px;padding:13px 13px 0;border-radius:17px 17px 0 0}
+.hero-shot img{height:360px}
+.meta-grid{gap:18px;padding:22px 0}
+.meta-grid b{margin-top:6px;font-size:.96rem}
+.split{gap:36px;align-items:start}
+.problem-panel{padding:28px;min-height:310px}
+.problem-panel .bigquote{font-size:clamp(1.6rem,2.35vw,2.25rem);line-height:1.32}
+.scenario{padding:24px}
+.scenario h3{font-size:1.32rem}
+.choices{margin:14px 0;gap:8px}
+.choice{padding:12px 14px}
+.scenario-result{min-height:88px;padding:15px}
+.stats{gap:12px}
+.stat{padding:22px 20px}
+.stat strong{font-size:clamp(2.1rem,3.25vw,3.55rem)}
+.stat span{margin-top:8px}
+.stat p{font-size:.9rem;line-height:1.48}
+.insights{grid-template-columns:260px minmax(0,1fr);gap:16px;margin-top:24px;align-items:stretch}
+.tabs{gap:7px}
+.tab{padding:15px 17px;font-size:.95rem}
+.insight-content{padding:28px 32px;min-height:260px;justify-content:center}
+.insight-content .eyebrow{margin-bottom:12px}
+.insight-content p{font-size:1.03rem}
+.insight-content .response{padding:14px 16px;font-size:.95rem}
+.process{gap:12px}
+.process article{padding:21px}
+.process article b{font-size:2.1rem}
+.process article p{font-size:.93rem;line-height:1.55}
+.research-card{margin-top:24px;padding:23px;gap:24px}
+.chip{font-size:.8rem}
+.feature{gap:36px;margin:52px 0;align-items:center}
+.feature-copy{max-width:530px}
+.feature-copy .num{font-size:.8rem}
+.feature-img{padding:16px;border-radius:18px}
+.feature-img img{max-height:440px}
+.feature-bullets li{padding:10px 0;font-size:.96rem;line-height:1.55}
+.demo{padding:24px;border-radius:19px}
+.demo-controls{gap:12px;margin:16px 0}
+.demo label{font-size:.92rem}
+.demo select{padding:12px}
+.demo-result{padding:18px}
+.demo-result .bar{margin:13px 0}
+.demo-result .value{font-size:1.9rem}
+.demo-result p{font-size:.91rem}
+.notice{font-size:.86rem}
+.gallery{gap:13px}
+.gallery img{height:205px}
+.gallery strong{padding:14px 15px 3px;font-size:1rem}
+.gallery span{font-size:.9rem;padding:0 15px 16px;line-height:1.45}
+.testing{gap:12px}
+.testing article{padding:23px}
+.testing strong{font-size:3.2rem}
+.testing h3{font-size:1.17rem;margin:9px 0}
+.testing p{font-size:.95rem}
+.reflection{gap:16px}
+.reflection article{padding:24px}
+.reflection ul{line-height:1.7}
+.foot{padding:50px 0}
+.foot h2{font-size:clamp(2.15rem,3.9vw,4rem)}
+.foot-bottom{margin-top:32px;padding-top:20px}
+@media(max-width:900px){
+ .wrap{width:min(100% - 40px,760px)}
+ .nav{height:64px;padding:0 20px}.progress{top:64px}
+ .section{padding:58px 0}
+ .hero-inner{padding:52px 0 22px}
+ .hero-sub{align-items:start}
+ .hero-shot img{height:300px}
+ .split,.feature,.research-card,.reflection{grid-template-columns:1fr;gap:22px}
+ .feature:nth-child(even) .feature-img{order:0}
+ .feature{margin:36px 0}
+ .feature-copy{max-width:100%}
+ .feature-img img{max-height:420px}
+ .insights{grid-template-columns:1fr}
+ .tabs{flex-direction:row;overflow-x:auto}
+ .tab{white-space:nowrap}
+ .meta-grid,.stats,.process{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .demo-controls,.demo-results,.testing,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .wrap{width:calc(100% - 32px)}
+ .section{padding:46px 0}
+ .section-heading{margin-bottom:22px}
+ h1{font-size:clamp(3.05rem,13vw,4.5rem)}
+ h2{font-size:clamp(1.9rem,8vw,2.65rem)}
+ h3{font-size:1.2rem}
+ .lead{font-size:1.04rem}
+ .hero-inner{padding:44px 0 18px}
+ .hero-sub{display:block;margin-bottom:22px}
+ .hero-sub p{font-size:1.03rem}
+ .hero-actions{margin-top:18px}
+ .hero-shot{padding:8px 8px 0}
+ .hero-shot img{height:215px}
+ .meta-grid,.stats,.process,.demo-controls,.demo-results,.testing,.gallery{grid-template-columns:1fr}
+ .meta-grid{gap:12px;padding:18px 0}
+ .stat,.scenario,.testing article,.reflection article{padding:19px}
+ .problem-panel{padding:22px;min-height:260px}
+ .insight-content{padding:21px;min-height:230px}
+ .feature{margin:30px 0}
+ .feature-img{padding:10px}
+ .feature-img img{max-height:350px}
+ .demo{padding:18px}
+ .gallery img{height:230px}
+ .foot{padding:42px 0}
+ .foot-bottom{display:block}
+}
+</style><link rel="stylesheet" href="assets/site.css">
+<style id="sx-integration">
+.nav{display:none}
+.progress{top:var(--sx-h,85px)!important;z-index:70}
+.section{scroll-margin-top:calc(var(--sx-h,85px) + 70px)!important}
+.subnav{position:sticky;top:calc(var(--sx-h,85px) + 6px);z-index:50;display:flex;gap:4px;width:max-content;max-width:calc(100% - 24px);margin:10px auto;overflow-x:auto;scrollbar-width:none;padding:5px;background:rgba(246,242,233,.92);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:99px}
+.subnav a{text-decoration:none;white-space:nowrap;font-size:.82rem;font-weight:700;padding:8px 14px;border-radius:99px;color:#53645a;transition:background .3s,color .3s}
+.subnav a.on{background:var(--forest);color:#fff}
+.subnav a:hover:not(.on){background:#e3eee3;color:var(--forest)}
+#cover{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#cover .pn{position:absolute;inset:0;display:grid;place-items:center}
+#cover .g{background:#b6d4b9}#cover .o{background:#dd975b}
+#cover .b{background:#173b2d;color:#fff;font:800 clamp(44px,9vw,130px) Manrope,sans-serif;letter-spacing:-.07em}
+#cover i{font-style:normal;color:#dd975b}
+
+/* ---- background to match the E-notifiers page ---- */
+:root{--cream:#F7F9FC}
+body{background-color:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,transparent .8px);background-size:24px 24px}
+.meta{background:rgba(237,242,247,.75);border-bottom:1px solid #E4ECF7}
+.subnav{background:rgba(247,249,252,.92)}
+/* ---- buttons: greens from the project palette ---- */
+.pill{position:relative;overflow:hidden;background:var(--forest);border-color:var(--forest);color:#fff;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background-color .25s,color .25s,border-color .25s,scale .15s,translate .3s cubic-bezier(.2,.8,.2,1)}
+.pill.light{background:transparent;color:var(--forest);border-color:var(--forest)}
+.hero-actions .pill,.foot .pill{background:#cfe6d0;border-color:#cfe6d0;color:var(--forest)}
+.hero-actions .pill.light,.foot .pill.light{background:transparent;color:#fff;border-color:#8cab99}
+.pill:hover{background:var(--forest2);border-color:var(--forest2);color:#fff;transform:translateY(-3px);box-shadow:0 14px 28px rgba(23,59,45,.28)}
+.pill.light:hover{background:var(--forest);border-color:var(--forest);color:#fff}
+.hero-actions .pill:hover,.foot .pill:hover{background:#e3f4dc;border-color:#e3f4dc;color:var(--forest);box-shadow:0 14px 28px rgba(0,0,0,.28)}
+.hero-actions .pill.light:hover,.foot .pill.light:hover{background:#cfe6d0!important;border-color:#cfe6d0!important;color:var(--forest)!important}
+:is(.pill,.choice,.tab,.subnav a,.to-top):active{scale:.95}
+.mag{translate:var(--tx,0px) var(--ty,0px)}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.22;transform:scale(0);animation:rp .65s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.choice,.tab{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .25s,border-color .25s,color .25s,scale .15s}
+.choice:hover{transform:translateX(5px)}
+.tab:hover:not(.active){transform:translateX(5px);background:#e3eee3;border-color:var(--forest2)}
+.subnav a:active{scale:.94}
+.chip{transition:background-color .25s,color .25s,transform .25s}
+.chip:hover{background:var(--mint);color:var(--forest);transform:translateY(-2px)}
+.demo select{transition:border-color .25s,box-shadow .25s}
+.demo select:hover,.demo select:focus{border-color:var(--forest2);box-shadow:0 0 0 4px #b6d4b955}
+/* ---- card hovers ---- */
+.stat,.process article,.testing article,.reflection article,.gallery button,.scenario,.research-card,.demo-result,.feature-img{transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s,background-color .3s}
+.stat:hover,.testing article:hover,.reflection article:hover,.gallery button:hover,.demo-result:hover,.scenario:hover{transform:translateY(-6px);box-shadow:0 20px 42px rgba(23,59,45,.13);border-color:var(--forest2)}
+.process article:hover,.research-card:hover{transform:translateY(-5px);background:#ffffff18}
+.feature-img:hover{box-shadow:0 28px 56px #173b2d24}
+.feature-bullets li{transition:padding .3s cubic-bezier(.2,.8,.2,1),color .25s}
+.feature-bullets li:hover{padding-left:10px;color:var(--forest)}
+/* ---- reveal, content swaps, bars ---- */
+.rv{opacity:0;transform:translateY(28px)}
+.rv.in{opacity:1;transform:none}
+.rv.in:hover{transform:translateY(-6px)}
+@keyframes swap{from{opacity:0;transform:translateY(12px)}}
+.swap>*{animation:swap .45s cubic-bezier(.2,.8,.2,1) backwards}
+.demo-result{animation:swap .55s cubic-bezier(.2,.8,.2,1) backwards}
+.demo-result:nth-child(2){animation-delay:.07s}.demo-result:nth-child(3){animation-delay:.14s}
+.demo-result .bar i{animation:barg .9s cubic-bezier(.2,.8,.2,1) .15s backwards}
+@keyframes barg{from{width:0}}
+.hero-shot{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform:perspective(1300px) rotateY(calc(var(--ry,0)*1deg)) rotateX(calc(var(--rx,0)*1deg))}
+/* ---- back to top ---- */
+.to-top{position:fixed;right:24px;bottom:24px;z-index:60;width:50px;height:50px;border-radius:50%;border:0;background:var(--forest);color:#cfe6d0;font-size:20px;display:grid;place-items:center;box-shadow:0 12px 30px rgba(23,59,45,.28);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;overflow:hidden;transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1),background-color .25s,color .25s,scale .15s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:#cfe6d0;color:var(--forest);transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.ripple{display:none}.hero-shot{transform:none!important}.demo-result,.demo-result .bar i,.swap>*{animation:none}.mag{translate:none}}
+
+/* ---- laptop mockups (only the Recommender laptop scrolls) ---- */
+.lap-scroll{width:100%;max-width:760px;margin:6px auto 10px;filter:drop-shadow(0 22px 20px rgba(23,59,45,.2))}
+.lap-lid{position:relative;border:9px solid #1f2a25;border-bottom-width:12px;border-radius:16px 16px 5px 5px;background:#1f2a25;overflow:hidden}
+.lap-cam{position:absolute;top:-6px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#58665d;z-index:3}
+.lap-screen{aspect-ratio:16/10;overflow-x:hidden;overflow-y:auto;background:#fff;border-radius:3px;scrollbar-width:none;outline-offset:-3px}
+.lap-screen::-webkit-scrollbar{display:none}
+.lap-screen img{display:block;width:100%;height:auto;max-height:none;border-radius:0;transform:none!important}
+.lap-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;display:flex;gap:7px;align-items:center;background:rgba(23,59,45,.92);color:#fff;font-size:12px;font-weight:700;padding:8px 14px;border-radius:99px;pointer-events:none;transition:opacity .4s,transform .4s;white-space:nowrap}
+.lap-hint i{font-style:normal;display:inline-block;animation:lapb 1.4s ease-in-out infinite}
+@keyframes lapb{50%{transform:translateY(4px)}}
+.lap-scroll.scrolled .lap-hint{opacity:0;transform:translateX(-50%) translateY(10px)}
+.lap-bar{position:absolute;top:8px;right:6px;bottom:8px;width:4px;border-radius:4px;background:rgba(23,59,45,.12);z-index:3;pointer-events:none}
+.lap-bar i{display:block;width:100%;height:28%;border-radius:4px;background:var(--forest2)}
+.lap-base{width:104%;height:13px;margin-left:-2%;background:linear-gradient(#dfe3dc,#9ba79d);border-radius:0 0 65% 65%;box-shadow:0 3px 2px #b4bdb6}
+.lap-scroll.noscroll .lap-hint,.lap-scroll.noscroll .lap-bar{display:none}
+.lap-cell{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;overflow:visible}
+.hero .lap-scroll{max-width:1000px;transition:transform .5s cubic-bezier(.2,.8,.2,1);transform:perspective(1300px) rotateY(calc(var(--ry,0)*1deg)) rotateX(calc(var(--rx,0)*1deg));filter:drop-shadow(0 26px 30px rgba(0,0,0,.4))}
+.hero-inner{padding-bottom:64px!important}
+.gallery{align-items:start}
+.gfig{margin:0}.gfig figcaption strong{display:block;padding:12px 4px 2px}.gfig figcaption span{display:block;color:var(--muted);font-size:.82rem;padding:0 4px}
+.gfig .lap-scroll{margin:0 auto 6px}
+/* ---- design screens box + viewer ---- */
+.screens-box{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.stack{all:unset;box-sizing:border-box;cursor:pointer;display:block;position:relative;width:100%;aspect-ratio:16/10;border-radius:14px}
+.stack:focus-visible{outline:3px solid var(--orange);outline-offset:6px}
+.tstack{position:absolute;inset:0;display:block}
+.tstack .t{position:absolute;width:62%;aspect-ratio:16/10;border-radius:10px;border:1px solid #cbd8cb;background:#fff;box-shadow:0 14px 34px rgba(23,59,45,.16);overflow:hidden;transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.tstack .t img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;max-height:none}
+.tstack .t.empty{background:linear-gradient(135deg,#e3eee3,#fff)}
+.tstack .t:nth-child(1){left:0;top:20%;transform:rotate(-4deg)}.tstack .t:nth-child(2){left:19%;top:10%;transform:rotate(1deg)}.tstack .t:nth-child(3){left:38%;top:0;transform:rotate(4deg)}
+.stack:hover .t:nth-child(1){transform:translate(-14px,10px) rotate(-7deg)}.stack:hover .t:nth-child(2){transform:translateY(-6px) rotate(1deg)}.stack:hover .t:nth-child(3){transform:translate(14px,-8px) rotate(7deg)}
+.tap{position:absolute;left:0;bottom:-2px;font-size:12px;font-weight:700;color:var(--muted)}.tap b{color:var(--forest2)}
+#sv{position:fixed;inset:0;z-index:150;background:#f6f2e9;display:flex;flex-direction:column}
+#sv[hidden]{display:none}
+.sv-top{display:flex;align-items:center;gap:16px;padding:14px max(20px,3vw);background:rgba(246,242,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.sv-top b{font:800 15px Manrope}.sv-top span{color:var(--muted);font-size:13px}.sv-top .sp{flex:1}
+.sv-x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--forest);font-size:24px;line-height:1}
+.sv-bar{height:3px;background:#dfe7dc}.sv-bar i{display:block;height:100%;width:100%;background:var(--forest2);transform:scaleX(0);transform-origin:0 0}
+.sv-scroll{flex:1;overflow-y:auto;scroll-behavior:smooth;padding:32px max(20px,3vw) 80px}
+.sv-fig{max-width:980px;margin:0 auto 48px}
+.sv-fig figcaption{display:flex;gap:12px;align-items:baseline;margin-bottom:12px;font-size:13px;color:var(--muted)}.sv-fig figcaption b{color:var(--ink);font-size:15px}
+.sv-fig .lap-scroll{max-width:980px}
+/* lightbox: scroll tall screens */
+.lightbox{overflow:auto;align-items:flex-start}
+.lightbox img{max-height:none;max-width:min(1300px,92vw);height:auto}
+@media(max-width:900px){.screens-box{grid-template-columns:1fr;gap:30px}.tap{position:static;display:block;margin-top:10px}.stack{margin-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.lap-hint i{animation:none}.sv-scroll{scroll-behavior:auto}.hero .lap-scroll{transform:none!important}}
+.backrow{width:min(1250px,calc(100% - 72px));margin:14px auto 0}
+.backbtn{padding:10px 18px;font-size:.8rem}
+.subnav .subback{background:#e3eee3;color:var(--forest);margin-right:4px}
+@media(max-width:700px){.backrow{width:calc(100% - 32px)}}
+</style>
+</head><body class="inner">
+<div class="sx-shell"><script src="assets/site.js"></script>
+<div id="cover" aria-hidden="true"><div class="pn g"></div><div class="pn o"></div><div class="pn b"><span>Second Cycle<i>.</i></span></div></div>
+<div class="progress" id="progress"></div><button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button><div id="page"><div class="backrow"><a href="work.html" class="pill light backbtn">← Back to all work</a></div><nav class="subnav" id="subnav" aria-label="Case study sections"><a class="subback" href="work.html">← All work</a><a href="#top">Overview</a><a href="#story">Story</a><a href="#research">Research</a><a href="#solution">Solution</a><a href="#screens">Screens</a><a href="#testing">Testing</a></nav>
+<main>
+<header class="hero" id="top"><div class="wrap hero-inner"><div class="eyebrow">02 / Selected work · Research-led product design</div><h1>Second<br><span>Cycle.</span></h1><div class="hero-sub"><p>What if the most sustainable device is the one you already own? A decision-support experience for making smarter choices about aging technology.</p><div class="hero-actions"><a href="#story" class="pill">Explore the story ↓</a><a href="#solution" class="pill light">See the product ↗</a><a href="https://www.figma.com/design/chNKye5Bt3xPmFQzzbCkw9/Second-Cycle?node-id=1-21082&amp;t=pBzVxCCytOtNqsAJ-1" class="pill light" target="_blank" rel="noopener noreferrer">View in Figma ↗</a></div></div><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Actual Second Cycle homepage showing hero, story, how it works and sustainability information"><img loading="lazy" src="assets/second-cycle-home.webp" alt="Actual Second Cycle homepage showing hero, story, how it works and sustainability information"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></div></header>
+<div class="meta"><div class="wrap meta-grid"><div><small>Project</small><b>Second Cycle</b></div><div><small>Timeline</small><b>8 weeks</b></div><div><small>Role</small><b>UX Research + Product Design</b></div><div><small>Team</small><b>Collaborative</b></div></div></div>
+<section class="section" id="story"><div class="wrap"><div class="split"><div class="fade"><div class="eyebrow">01 / The problem</div><h2>A broken device. Too many questions.</h2><p class="lead">When technology stops working, people face a surprisingly complicated decision: repair it, keep using it, replace it, or recycle it?</p><p>Our team explored why people struggle to make these choices. We found that even people interested in sustainable behavior often encounter confusing repair costs, fragmented advice, and uncertainty about who to trust.</p><p>Second Cycle was designed to bring these decisions into one understandable experience—without making people feel guilty about their choices.</p></div><div class="scenario fade"><div class="eyebrow">Interactive / Try the problem</div><h3>Your phone is slowing down. What would you do first?</h3><p style="color:var(--muted)">Choose the option closest to your instinct.</p><div class="choices" id="choices"><button class="choice" data-answer="repair">Search for a repair solution</button><button class="choice" data-answer="replace">Check prices for a new phone</button><button class="choice" data-answer="keep">Keep using it for now</button><button class="choice" data-answer="unsure">I'm not sure where to start</button></div><div class="scenario-result" aria-live="polite"><b id="scenario-title">Make a choice to explore the problem.</b><p id="scenario-desc">Each route comes with different costs, trade-offs, and questions.</p></div><p class="notice">This is an illustrative interaction for the portfolio, not a user research survey.</p></div></div></div></section>
+<section class="section" id="research" style="background:#e9eee6"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">02 / Discovery</div><h2>We researched the decision, not just the device.</h2><p class="lead">We combined a recruitment screener, contextual interviews, thematic analysis, and a branching decision exercise to understand what people actually do when devices age or break.</p></div><div class="stats fade"><div class="stat"><strong>50+</strong><span>Screener responses</span><p>Device habits and attitudes</p></div><div class="stat"><strong>9</strong><span>Interview sessions analyzed</span><p>Patterns across lived experiences</p></div><div class="stat"><strong>7</strong><span>Journey paths</span><p>Decision scenarios in Twine</p></div><div class="stat"><strong>9</strong><span>Completed prototype tests</span><p>First-click and qualitative feedback</p></div></div><p class="notice">The final report describes 10 research sessions conducted and nine sessions analyzed. These figures represent different stages of the research.</p><div class="section-heading fade" style="margin-top:90px"><div class="eyebrow">03 / Synthesis</div><h2>Turning conversations into design directions.</h2><p class="lead">I contributed to identifying emerging themes across needs, behaviors, triggers, and motivations. Explore how the findings informed the product.</p></div><div class="insights fade"><div class="tabs" role="tablist" aria-label="Research insights"><button class="tab active" role="tab" aria-selected="true" data-insight="cost">01 / Cost & value</button><button class="tab" role="tab" aria-selected="false" data-insight="trust">02 / Trust</button><button class="tab" role="tab" aria-selected="false" data-insight="friction">03 / Information gaps</button><button class="tab" role="tab" aria-selected="false" data-insight="behavior">04 / Behavior</button></div><div class="insight-content" id="insight-content" role="tabpanel" aria-live="polite"><div class="eyebrow" id="insight-label">Research finding / 01</div><h3 id="insight-title">Money often outweighs intention.</h3><p id="insight-desc">Cost and financial considerations emerged across the research themes. People may prefer repair in principle, but the price and uncertainty can lead them to replace instead.</p><div class="response"><b>Design response → </b><span id="insight-response">Compare repair, keep, upgrade and replacement options side by side, with estimated costs and visible trade-offs.</span></div></div></div></div></section>
+<section class="section dark"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">04 / From research to strategy</div><h2>Research shaped what we built.</h2><p class="lead">The team moved from interviews and affinity mapping into personas, journey maps, competitive analysis, and feature prioritization.</p></div><div class="process fade"><article><b>01</b><h3>Discover</h3><p>Contextual inquiries, interviews, literature review and recruitment screening.</p></article><article><b>02</b><h3>Define</h3><p>Emerging themes, affinity mapping, personas and a journey map.</p></article><article><b>03</b><h3>Prioritize</h3><p>Seven-platform competitor review and impact-versus-effort decisions.</p></article><article><b>04</b><h3>Design & test</h3><p>Wireframes, prototypes, click testing and qualitative feedback.</p></article></div><div class="research-card fade"><div><div class="eyebrow">A revealing moment</div><h3>6 of 7 people searched more than once.</h3><p>In the branching laptop-failure activity, six participants went through multiple rounds of searching before finding a useful result. Five of seven paths ended at a cost-related decision point.</p></div><div><div class="eyebrow">What that suggested</div><h3>One clear decision space.</h3><p>Instead of asking users to piece together advice from forums, search engines, repair shops and manufacturers, the concept brought options and next steps into one flow.</p><div><span class="chip">Decision support</span><span class="chip">Option comparison</span><span class="chip">Local resources</span></div></div></div></div></section>
+<section class="section" id="solution"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">05 / The solution</div><h2>From uncertainty to a clearer next step.</h2><p class="lead">The product follows a simple journey: understand the device, compare options, then find the resources needed to act.</p></div><div class="feature"><div class="feature-copy fade"><div class="num">STEP 01 / UNDERSTAND</div><h2>Start with the device—and the person.</h2><p>Users describe their device, its condition and the issues they're experiencing. Then they rank what matters most, such as cost, environmental impact, performance and long-term value.</p><ul class="feature-bullets"><li>Device condition and ownership history</li><li>Issue selection and diagnosis context</li><li>Ranked personal priorities</li></ul></div><div class="feature-img lap-cell fade"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Recommender prototype with device, issue and priority steps"><img loading="lazy" src="assets/second-cycle-recommender.webp" alt="Recommender prototype with device, issue and priority steps"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></div></div><div class="feature"><div class="feature-img lap-cell fade"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Recommendation Results design comparing repair, keep, upgrade and replacement"><img loading="lazy" src="assets/second-cycle-results.webp" alt="Recommendation Results design comparing repair, keep, upgrade and replacement"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></div><div class="feature-copy fade"><div class="num">STEP 02 / COMPARE</div><h2>Make the trade-offs visible.</h2><p>During group brainstorming, I suggested showing match percentages and making repair-versus-replacement comparisons easier to understand. The idea was to help users judge whether a repair is worth the investment—or whether another option makes more sense.</p><ul class="feature-bullets"><li>Illustrative match percentages</li><li>Estimated cost, time, pros and cons</li><li>Explanation of why an option is suggested</li></ul><p class="notice"><b>Prototype transparency:</b> the match scores shown in the actual design were example values, not a validated algorithm.</p></div></div><div class="feature"><div class="feature-copy fade"><div class="num">STEP 03 / ACT</div><h2>Make the next step easier.</h2><p>Second Cycle extends beyond the recommendation with repair guides, a repair-and-recycling locator concept, and educational resources. These help connect an informed decision to something users can actually do.</p><ul class="feature-bullets"><li>Find repair and recycling options</li><li>Explore device-specific repair guides</li><li>Learn through the technology blog</li></ul></div><div class="feature-img lap-cell fade"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Second Cycle repair guides screen with device categories and article cards"><img loading="lazy" src="assets/second-cycle-guides.webp" alt="Second Cycle repair guides screen with device categories and article cards"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></div></div>
+<div class="demo fade"><div class="eyebrow">Interactive concept / Decision lens</div><h3>See how priorities change the conversation.</h3><p>Explore how a comparison interface might emphasize different options. This is an <b>illustrative portfolio demo</b>, not the Second Cycle scoring engine or an actual repair recommendation.</p><div class="demo-controls"><label>What matters most?<select id="priority"><option value="cost">Saving money</option><option value="impact">Environmental impact</option><option value="speed">Speed & convenience</option></select></label><label>Device condition<select id="condition"><option value="good">Good — minor issues</option><option value="fair">Fair — some damage</option><option value="poor">Poor — major issues</option></select></label><label>Repair cost relative to replacement<select id="expense"><option value="low">Much lower</option><option value="medium">About half</option><option value="high">Almost as much</option></select></label></div><div class="demo-results" id="demo-results" aria-live="polite"></div><p class="notice">The indicators in this demo are qualitative visual aids. They do not estimate actual repair costs, environmental savings, or validated match percentages.</p></div></div></section>
+<section class="section" style="background:#e9eee6"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">06 / Product ecosystem</div><h2>More than a single tool.</h2><p class="lead">Explore selected screens from the team's high-fidelity prototype. Scroll inside any laptop to explore the full screen.</p></div><div class="gallery fade"><figure class="gfig"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Second Cycle homepage"><img loading="lazy" src="assets/second-cycle-home.webp" alt="Second Cycle homepage"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><figcaption><strong>Homepage</strong><span>Introducing the value of a second life for tech</span></figcaption></figure><figure class="gfig"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Second Cycle repair guides"><img loading="lazy" src="assets/second-cycle-guides.webp" alt="Second Cycle repair guides"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><figcaption><strong>Repair guides</strong><span>Supporting self-directed repair research</span></figcaption></figure><figure class="gfig"><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="Second Cycle tech blog"><img loading="lazy" src="assets/second-cycle-blog.webp" alt="Second Cycle tech blog"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div><figcaption><strong>Tech blog</strong><span>Learning and community content</span></figcaption></figure></div></div></section>
+<section class="section" id="screens" style="background:#e9eee6"><div class="wrap"><div class="screens-box fade"><div><div class="eyebrow">07 / Design screens</div><h2>Every screen, in one scroll.</h2><p class="lead">Browse the full set of Second Cycle screens, from the homepage and recommender to the repair locator, guides and tech blog, stacked one below the other.</p><button class="pill" type="button" data-sv>View all screens ↓</button> <a href="https://www.figma.com/design/chNKye5Bt3xPmFQzzbCkw9/Second-Cycle?node-id=1-21082&amp;t=pBzVxCCytOtNqsAJ-1" class="pill light" target="_blank" rel="noopener noreferrer" style="margin-left:8px;display:inline-block">Open in Figma ↗</a></div><button class="stack" type="button" data-sv aria-label="Open all design screens"><span class="tstack" id="tstack"></span><span class="tap">Tap to open · <b id="scount">7</b> screens</span></button></div></div></section>
+<section class="section" id="testing"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">07 / Evaluating the prototype</div><h2>The most useful feedback wasn't all positive.</h2><p class="lead">Nine participants completed the click test and qualitative questions. Their responses helped us see where the prototype worked and where the concept still needed clarity.</p></div><div class="testing fade"><article><strong>9/9</strong><h3>Found the Recommender</h3><p>All nine selected the Recommender when asked where to go for help deciding what to do with a broken device.</p></article><article class="warning"><strong>2/9</strong><h3>Understood the overall purpose</h3><p>Most participants mistook the site for a direct repair, purchase or trade-in service—an important messaging problem.</p></article><article><strong>8/9</strong><h3>Said they'd use it</h3><p>Most participants considered the concept useful, despite confusion about some features and the site's overall purpose.</p></article></div><div class="reflection" style="margin-top:22px"><article class="fade"><h3>What we learned</h3><ul><li>A clear primary entry point isn't the same as a clear product promise.</li><li>Some participants wanted stronger location filtering and ZIP-code search.</li><li>Users interpreted the Recommender primarily as a repair tool; recycling was less visible.</li></ul></article><article class="fade"><h3>What happened next</h3><p>With an eight-week capstone timeline, the team made limited changes after testing. Much of the project time went into research, interviews, synthesis and prioritizing the right product direction.</p><p>We treated the remaining issues as future opportunities rather than claiming they were fully resolved.</p></article></div></div></section>
+<section class="section" id="reflection"><div class="wrap"><div class="section-heading fade"><div class="eyebrow">08 / Reflection & contribution</div><h2>What I brought to the team.</h2><p class="lead">I contributed across research and design, including interviews, emerging-theme synthesis, brainstorming, wireframes, UI design and prototyping.</p></div><div class="reflection fade"><article><h3>My contributions</h3><ul><li>Conducted research and user interviews.</li><li>Helped identify emerging themes through needs, behaviors, triggers and motivations.</li><li>Participated in team brainstorming and the design process across the product screens.</li><li>Suggested match percentages and clearer repair-versus-replacement comparisons.</li></ul></article><article><h3>What I'd improve next</h3><ul><li>Explain the website's role as a decision-support tool more clearly on the homepage.</li><li>Validate a transparent recommendation-scoring model before using real match percentages.</li><li>Improve repair/recycling discovery with better filters and verified local data.</li><li>Test with people who have lower digital literacy and different access needs.</li></ul></article></div><p class="notice" style="margin-top:22px">Second Cycle was a collaborative academic concept, not a commercially launched product. Design and research outcomes are attributed to the team unless specifically described as my contribution.</p></div></section>
+</main><footer class="foot"><div class="wrap"><div class="eyebrow">Next / Selected work</div><h2>Different problem.<br>Same curiosity.</h2><p>Explore E-notifiers, a launched email-campaign product designed in a professional team setting.</p><div class="hero-actions"><a href="enotifiers.html" class="pill">Explore E-notifiers ↗</a><a href="work.html" class="pill light" style="color:#fff;border-color:#7d9e87">Back to all work ↗</a></div><div class="foot-bottom"><span>© 2026 Rajatha Rao V</span><span>Second Cycle · HCI Capstone</span></div></div></footer></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged prototype screenshot"><button class="close" id="close" aria-label="Close image">×</button><img id="lightbox-img" alt="Enlarged Second Cycle prototype screen"></div>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s);const all=s=>[...document.querySelectorAll(s)];
+const progress=()=>{const d=document.documentElement;$('#progress').style.width=(100*d.scrollTop/Math.max(1,d.scrollHeight-d.clientHeight))+'%'};addEventListener('scroll',progress,{passive:true});progress();
+if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.08});all('.fade').forEach(e=>obs.observe(e));}else{all('.fade').forEach(e=>e.classList.add('visible'));}
+const answers={repair:['Repair sounds sensible—but at what cost?','Without a reliable estimate, you might spend more than the device is worth. This is where clear comparison can help.'],replace:['Replacing feels straightforward.','But how does the cost compare with repairing or upgrading? The right decision depends on the device and your priorities.'],keep:['Keeping it avoids an immediate purchase.','That may be practical, but it helps to understand whether the issue will worsen or whether a small repair could extend its life.'],unsure:['Uncertainty is the problem.','People often jump between reviews, forums, repair shops and manufacturer sites before they feel confident enough to decide.']};all('.choice').forEach(b=>b.addEventListener('click',()=>{all('.choice').forEach(x=>x.classList.toggle('active',x===b));$('#scenario-title').textContent=answers[b.dataset.answer][0];$('#scenario-desc').textContent=answers[b.dataset.answer][1]}));
+const insights={cost:['Research finding / 01','Money often outweighs intention.','Cost and financial considerations were the most prominent recurring theme. People may prefer repair in principle, but the price and uncertainty can lead them to replace instead.','Compare repair, keep, upgrade and replacement options, with costs and trade-offs made visible.'],trust:['Research finding / 02','People need reasons to trust a choice.','Uncertainty about repair quality, reliability and information sources can discourage people from trying repair or refurbished alternatives.','Show pros, cons, rationale and pathways to more trustworthy resources.'],friction:['Research finding / 03','Information is scattered across sources.','Participants navigated forums, search engines, manufacturer pages and reviews. In the journey activity, six of seven searched multiple times.','Unify decision guidance and next steps in a single flow, with supporting resources.'],behavior:['Research finding / 04','Good intentions do not always become action.','Some people kept old devices indefinitely or felt pushed to upgrade by promotions and product cycles. Convenience could outweigh environmental concern.','Make the sustainable option practical, understandable and easy to act on—not a guilt-based message.']};all('.tab').forEach(b=>b.addEventListener('click',()=>{all('.tab').forEach(t=>{t.classList.toggle('active',t===b);t.setAttribute('aria-selected',String(t===b))});const d=insights[b.dataset.insight];['insight-label','insight-title','insight-desc','insight-response'].forEach((id,i)=>$('#'+id).textContent=d[i])}));
+function renderDemo(){const priority=$('#priority').value,condition=$('#condition').value,expense=$('#expense').value;let rows=[{name:'Repair',score:2,note:'A practical way to extend the life of an otherwise usable device.'},{name:'Keep as-is',score:1,note:'Avoids immediate spending, but may leave the underlying issue unresolved.'},{name:'Replace',score:0,note:'Can make sense when the existing device is no longer reliable.'}];
+if(priority==='cost'){rows[0].score+=expense==='high'?-2:2;rows[1].score+=2;rows[2].score+=expense==='high'?2:0}
+if(priority==='impact'){rows[0].score+=3;rows[1].score+=3;rows[2].score-=1}
+if(priority==='speed'){rows[0].score+=expense==='low'?1:0;rows[1].score+=1;rows[2].score+=2}
+if(condition==='poor'){rows[0].score-=2;rows[1].score-=2;rows[2].score+=3}
+if(condition==='good'){rows[0].score+=1;rows[1].score+=1}
+rows.sort((a,b)=>b.score-a.score);const ranks=['Explore first','Worth considering','Consider trade-offs'];$('#demo-results').innerHTML=rows.map((r,i)=>`<div class="demo-result"><small>${ranks[i]}</small><h3 style="margin-top:10px">${r.name}</h3><div class="bar"><i style="width:${[90,65,40][i]}%"></i></div><div class="value">${['01','02','03'][i]}</div><p>${r.note}</p></div>`).join('')}
+all('#priority,#condition,#expense').forEach(x=>x.addEventListener('change',renderDemo));renderDemo();
+const modal=$('#lightbox'),modalImg=$('#lightbox-img');let prev=null;function openImg(src,alt){prev=document.activeElement;modalImg.src=src;modalImg.alt=alt;modal.classList.add('open');document.body.style.overflow='hidden';$('#close').focus()}function closeImg(){modal.classList.remove('open');modalImg.removeAttribute('src');document.body.style.overflow='';prev?.focus()}all('.zoomable').forEach(im=>{im.addEventListener('click',()=>openImg(im.src,im.alt));im.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImg(im.src,im.alt)}})});all('.gallery button').forEach(b=>b.addEventListener('click',()=>{const im=b.querySelector('img');openImg(im.src,im.alt)}));$('#close').addEventListener('click',closeImg);modal.addEventListener('click',e=>{if(e.target===modal)closeImg()});addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeImg();if(e.key==='Tab'&&modal.classList.contains('open')){e.preventDefault();$('#close').focus()}});
+})();
+</script><script>
+(()=>{
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+/* card-arrival intro in this project's palette; calm page-in otherwise */
+const cover=document.getElementById("cover");let via=false;
+try{via=sessionStorage.getItem("tr")==="card";sessionStorage.removeItem("tr")}catch(_){}
+if(reduce||!via){cover.remove()}else{
+ const ease="cubic-bezier(.7,0,.2,1)",pn=[...cover.querySelectorAll(".pn")].reverse();
+ cover.querySelector("span").animate([{opacity:1},{opacity:0}],{duration:350,delay:500,fill:"forwards"});
+ pn.forEach((p,k)=>{const a=p.animate([{transform:"translateY(0)"},{transform:"translateY(-100%)"}],{duration:800,delay:750+k*130,easing:ease,fill:"forwards"});if(k===pn.length-1)a.onfinish=()=>cover.remove()});
+}
+/* active section in the sub-navigation */
+const links=[...document.querySelectorAll("#subnav a[href^=\"#\"]")],ids=links.map(a=>document.querySelector(a.getAttribute("href")));
+function on(){let cur=0;ids.forEach((el,i)=>{if(el&&el.getBoundingClientRect().top<innerHeight*.4)cur=i});links.forEach((a,i)=>a.classList.toggle("on",i===cur))}
+addEventListener("scroll",on,{passive:true});on();
+/* images not added yet show a labelled placeholder instead of a broken icon */
+const miss=i=>{const n=(i.getAttribute("src")||"").split("/").pop();i.onerror=null;i.src="data:image/svg+xml,"+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#e8eee4"/><text x="400" y="250" text-anchor="middle" fill="#65746a" font-family="sans-serif" font-size="22">Add image: second-cycle-${n}</text></svg>`)};
+document.querySelectorAll("img[src]").forEach(i=>{if(i.id==="lightbox-img")return;i.addEventListener("error",()=>miss(i));if(i.complete&&!i.naturalWidth)miss(i)});
+
+/* ---- more interactions ---- */
+const fine=matchMedia("(hover:hover)").matches;
+/* reveal on scroll + count-up */
+const cnt=el=>{const m=el.textContent.trim().match(/^(\d+)(.*)$/);if(!m||reduce)return;const n=+m[1],suf=m[2];let k=0;el.textContent="0"+suf;const t=setInterval(()=>{k+=Math.max(1,Math.ceil(n/18));if(k>=n){k=n;clearInterval(t)}el.textContent=k+suf},45)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,sib=[...el.parentElement.children].filter(c=>c.classList.contains("rv"));el.style.transitionDelay=(sib.indexOf(el)%4)*90+"ms";el.classList.add("in");setTimeout(()=>{el.style.transitionDelay=""},1100);el.querySelectorAll("strong").forEach(x=>{if(x.closest(".stat,.testing"))cnt(x)});io.unobserve(el)}),{threshold:.12});
+document.querySelectorAll(".stat,.process article,.testing article,.reflection article,.gallery button,.scenario,.research-card,.feature").forEach(el=>{el.classList.add("rv");io.observe(el)});
+/* ripple + magnetic buttons */
+if(!reduce){
+ document.addEventListener("pointerdown",e=>{const b=e.target.closest(".pill,.choice,.tab,.to-top,.subnav a");if(!b)return;
+  const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,x=document.createElement("span");
+  x.className="ripple";x.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;
+  if(getComputedStyle(b).position==="static")b.style.position="relative";b.style.overflow="hidden";b.appendChild(x);setTimeout(()=>x.remove(),700)});
+}
+if(!reduce&&fine){
+ document.addEventListener("pointermove",e=>{const b=e.target.closest&&e.target.closest(".pill");
+  document.querySelectorAll(".pill.mag-on").forEach(x=>{if(x!==b){x.classList.remove("mag-on");x.style.setProperty("--tx","0px");x.style.setProperty("--ty","0px")}});
+  if(!b)return;b.classList.add("mag","mag-on");const r=b.getBoundingClientRect();
+  b.style.setProperty("--tx",((e.clientX-r.left-r.width/2)*.2).toFixed(1)+"px");b.style.setProperty("--ty",((e.clientY-r.top-r.height/2)*.28).toFixed(1)+"px")});
+ const hs=document.querySelector(".hero .lap-scroll"),hr=document.querySelector(".hero");
+ if(hs&&hr){hr.addEventListener("mousemove",e=>{const r=hr.getBoundingClientRect();hs.style.setProperty("--ry",((e.clientX-r.left)/r.width*2-1)*4);hs.style.setProperty("--rx",-((e.clientY-r.top)/r.height*2-1)*3)});hr.addEventListener("mouseleave",()=>{hs.style.setProperty("--ry",0);hs.style.setProperty("--rx",0)})}
+}
+/* animate content swaps */
+const bump=el=>{if(!el||reduce)return;el.classList.remove("swap");void el.offsetWidth;el.classList.add("swap")};
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>bump(document.querySelector(".insight-content"))));
+document.querySelectorAll(".choice").forEach(c=>c.addEventListener("click",()=>bump(document.querySelector(".scenario-result"))));
+/* back to top */
+const tt=document.getElementById("toTop");
+addEventListener("scroll",()=>tt.classList.toggle("show",scrollY>700),{passive:true});
+tt.addEventListener("click",()=>scrollTo({top:0,behavior:reduce?"auto":"smooth"}));
+})();
+</script>
+<div id="sv" role="dialog" aria-modal="true" aria-label="All design screens" hidden><div class="sv-top"><b>Second Cycle</b><span>Design screens</span><i class="sp"></i><span id="svc">01 / 07</span><button class="sv-x" id="svx" type="button" aria-label="Close screens">×</button></div><div class="sv-bar"><i id="svp"></i></div><div class="sv-scroll" id="svs" tabindex="0"></div></div>
+<script>
+(()=>{
+/* Add or reorder screens here. Files live in /second-cycle. */
+const SCREENS=[
+ {src:"assets/second-cycle-home.webp",title:"Homepage",note:"Hero, story video, how it works, user quotes and sustainability facts"},
+ {src:"assets/second-cycle-recommender.webp",title:"Recommender",note:"Device details, issues and ranked priorities in three steps"},
+ {src:"assets/second-cycle-results.webp",title:"Recommendation results",note:"Repair, keep, upgrade and replace options with match scores, pros and cons"},
+ {src:"assets/second-cycle-locator.webp",title:"Repair and recycling locator",note:"Search by location with filters, result cards and an interactive map"},
+ {src:"assets/second-cycle-locator-menu.webp",title:"Locator with resources menu",note:"The Resources menu open, listing guides, blog, forum, repair shops and recycling centers"},
+ {src:"assets/second-cycle-guides.webp",title:"Repair guides",note:"Device categories and article cards"},
+ {src:"assets/second-cycle-blog.webp",title:"Tech blog",note:"Featured review, tech news and industry trends with search and sorting"}
+];
+const $=q=>document.querySelector(q),pad=n=>String(n).padStart(2,"0"),reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const sv=$("#sv"),sc=$("#svs"),cnt=$("#svc"),prog=$("#svp"),box=$(".stack");
+$("#scount").textContent=SCREENS.length;
+const TH=[0,1,2];
+$("#tstack").innerHTML=TH.map(()=>'<span class="t"></span>').join("");
+[...document.querySelectorAll("#tstack .t")].forEach((t,k)=>{const im=new Image();im.alt="";im.src=SCREENS[TH[k]].src;im.onload=()=>t.appendChild(im);im.onerror=()=>t.classList.add("empty")});
+sc.innerHTML=SCREENS.map((x,i)=>`<figure class="sv-fig"><figcaption><b>${pad(i+1)} — ${x.title}</b><span>${x.note}</span></figcaption><div class="lap-scroll"><div class="lap-lid"><span class="lap-cam"></span><div class="lap-screen" tabindex="0" role="region" aria-label="${x.title}"><img loading="lazy" src="${x.src}" alt="${x.title}: ${x.note}"></div><span class="lap-hint"><i>↓</i> Scroll the screen</span><span class="lap-bar"><i></i></span></div><div class="lap-base"></div></div></figure>`).join("");
+function update(){const m=sc.scrollHeight-sc.clientHeight;prog.style.transform=`scaleX(${m>0?sc.scrollTop/m:0})`;let cur=0;[...sc.children].forEach((f,k)=>{if(f.offsetTop-sc.scrollTop<sc.clientHeight*.45)cur=k});cnt.textContent=pad(cur+1)+" / "+pad(SCREENS.length)}
+sc.addEventListener("scroll",update,{passive:true});
+let from=null;
+function openSv(t){from=t;sc.scrollTop=0;sv.hidden=false;update();all().forEach(setup);all().forEach(w=>w._upd&&w._upd());document.documentElement.style.overflow="hidden";
+ document.querySelectorAll("#page,.to-top").forEach(x=>{if(x.inert!==undefined)x.inert=true});
+ if(!reduce){const r=(box||t).getBoundingClientRect();
+  sv.animate([{clipPath:`inset(${r.top}px ${innerWidth-r.right}px ${innerHeight-r.bottom}px ${r.left}px round 14px)`},{clipPath:"inset(0 0 0 0 round 0px)"}],{duration:650,easing:"cubic-bezier(.7,0,.2,1)"});
+  [...sc.children].slice(0,2).forEach((f,k)=>f.animate([{opacity:0,transform:"translateY(30px)"},{opacity:1,transform:"none"}],{duration:600,delay:350+k*120,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"}))}
+ $("#svx").focus({preventScroll:true})}
+function closeSv(){const end=()=>{sv.hidden=true;document.documentElement.style.overflow="";document.querySelectorAll("#page,.to-top").forEach(x=>x.inert=false);from&&from.focus({preventScroll:true})};
+ if(reduce){end();return}sv.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateY(24px)"}],{duration:350,easing:"ease-in"}).onfinish=end}
+document.querySelectorAll("[data-sv]").forEach(b=>b.addEventListener("click",()=>openSv(b)));
+$("#svx").addEventListener("click",closeSv);
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!sv.hidden){if(document.getElementById("lightbox").classList.contains("open"))return;e.stopPropagation();closeSv()}},true);
+
+/* every laptop screen scrolls */
+const all=()=>[...document.querySelectorAll(".lap-scroll")];
+function setup(w){if(w._lap)return;w._lap=1;
+ const s=w.querySelector(".lap-screen"),bar=w.querySelector(".lap-bar i");
+ const upd=()=>{const m=s.scrollHeight-s.clientHeight;if(!s.clientHeight)return;w.classList.toggle("noscroll",m<=60);if(m<=60)return;
+  const t=bar.parentElement.clientHeight,h=Math.max(28,s.clientHeight/s.scrollHeight*t);bar.style.height=h+"px";bar.style.transform=`translateY(${s.scrollTop/m*(t-h)}px)`;if(s.scrollTop>24)w.classList.add("scrolled")};
+ w._upd=upd;s.addEventListener("scroll",upd,{passive:true});const im=s.querySelector("img");if(im)im.addEventListener("load",upd);upd();
+ if(!reduce&&!w.closest("#sv")){let done=false;new IntersectionObserver((es,io)=>es.forEach(e=>{if(e.isIntersecting&&!done){done=true;io.disconnect();
+  setTimeout(()=>{if(s.scrollTop>0||s.scrollHeight-s.clientHeight<=80)return;s.scrollTo({top:130,behavior:"smooth"});setTimeout(()=>{if(s.scrollTop<=140)s.scrollTo({top:0,behavior:"smooth"})},900)},450)}}),{threshold:.6}).observe(w)}}
+all().forEach(setup);addEventListener("resize",()=>all().forEach(w=>w._upd&&w._upd()));
+})();
+</script>
+</div></body></html>
