@@ -84,7 +84,7 @@ body{background-color:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,tran
 .fl2-chips button{border:0;background:transparent;border-radius:99px;padding:9px 18px;font-weight:700;font-size:.82rem;color:#4a5a78;transition:background .3s,color .3s}
 .fl2-chips button:hover{background:#e9edff}
 .fl2-chips button[aria-pressed=true]{background:linear-gradient(120deg,#4266ed,#5442ff);color:#fff}
-.fl2-info{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #d7ddff;border-radius:20px;padding:16px 20px;margin-bottom:18px;box-shadow:0 12px 30px rgba(66,108,255,.08);min-height:92px}
+.fl2-info{overflow:hidden;display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #d7ddff;border-radius:20px;padding:16px 20px;margin-bottom:18px;box-shadow:0 12px 30px rgba(66,108,255,.08);min-height:92px}
 .fl2-ib{flex:none;width:46px;height:46px;border-radius:50%;background:linear-gradient(145deg,#4a76ff,#5442ff);color:#fff;font:800 1.05rem Manrope,sans-serif;display:grid;place-items:center;box-shadow:0 8px 18px rgba(84,66,255,.3);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .fl2-ib.pop{transform:scale(1.18) rotate(-6deg)}
 .fl2-ix{min-width:0;flex:1}
@@ -113,7 +113,7 @@ body{background-color:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,tran
 .fl2-ic{display:block;width:2.4cqw;height:2.4cqw;color:#5442ff;margin-bottom:.35cqw;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .fl2-ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8}
 .fl2-no{position:absolute;left:-.9cqw;top:-.9cqw;width:2.1cqw;height:2.1cqw;border-radius:50%;background:linear-gradient(145deg,#4a76ff,#5442ff);color:#fff;font:800 max(9px,.88cqw) Manrope,sans-serif;display:grid;place-items:center;box-shadow:0 0 0 .3cqw #fff,0 .3cqw .8cqw rgba(84,66,255,.35);z-index:3;transition:transform .35s}
-.fl2-n:hover,.fl2-n.on,.fl2-n:focus-visible{transform:translateY(-.55cqw) scale(1.045);border-color:#5442ff;background:linear-gradient(180deg,#fff,#ebe8ff);box-shadow:0 1.2cqw 2.6cqw rgba(84,66,255,.28);z-index:4}
+.fl2-n:hover,.fl2-n.on,.fl2-n:focus-visible{transform:scale(1.045);border-color:#5442ff;background:linear-gradient(180deg,#fff,#ebe8ff);box-shadow:0 1.2cqw 2.6cqw rgba(84,66,255,.28);z-index:4}
 .fl2-n:hover .fl2-ic,.fl2-n.on .fl2-ic{transform:scale(1.18) rotate(-6deg)}
 .fl2-n:hover .fl2-no,.fl2-n.on .fl2-no{transform:scale(1.2)}
 .fl2-n:focus-visible,.fl2-pill:focus-visible,.fl2-yn:focus-visible{outline:3px solid #5442ff;outline-offset:3px}
@@ -137,7 +137,7 @@ body{background-color:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,tran
 .fl2-pill{position:absolute;left:var(--x);top:calc((var(--y) - var(--oy))/var(--hh)*100%);width:var(--w);height:calc(var(--h)/var(--hh)*100%);z-index:2;display:flex;align-items:center;justify-content:center;gap:.6cqw;border:0;border-radius:99px;background:#dfe3ff;color:#17213d;font:700 1.15cqw Manrope,sans-serif;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,box-shadow .3s,opacity .35s}
 .fl2-pill .fl2-ic{width:1.8cqw;height:1.8cqw;margin:0;color:#4a6be8}
 .fl2-pp{background:#e6d9ff}.fl2-pp .fl2-ic{color:#8a4bff}
-.fl2-pill:hover,.fl2-board[data-mode=t] .fl2-pt,.fl2-board[data-mode=p] .fl2-pp{background:linear-gradient(120deg,#4266ed,#5442ff);color:#fff;transform:translateY(-.3cqw);box-shadow:0 .7cqw 1.4cqw rgba(84,66,255,.3)}
+.fl2-pill:hover,.fl2-board[data-mode=t] .fl2-pt,.fl2-board[data-mode=p] .fl2-pp{background:linear-gradient(120deg,#4266ed,#5442ff);color:#fff;transform:scale(1.03);box-shadow:0 .7cqw 1.4cqw rgba(84,66,255,.3)}
 .fl2-pill:hover .fl2-ic,.fl2-board[data-mode=t] .fl2-pt .fl2-ic,.fl2-board[data-mode=p] .fl2-pp .fl2-ic{color:#fff}
 .fl2-yn{position:absolute;left:var(--x);top:calc((var(--y) - var(--oy))/var(--hh)*100%);width:var(--w);height:calc(var(--h)/var(--hh)*100%);z-index:3;border:0;background:transparent;font:700 1.25cqw Manrope,sans-serif;color:#17213d;border-radius:99px;cursor:pointer;transition:background .25s,color .25s,transform .3s}
 .fl2-yn:hover{background:#5442ff;color:#fff;transform:scale(1.12)}
@@ -188,7 +188,7 @@ body{background-color:#F7F9FC;background-image:radial-gradient(#cdd0d7 .8px,tran
 .fl2-n small{font-size:.84rem;margin-top:6px}
 .fl2-ic,.fl2-splash .fl2-ic,.fl2-out .fl2-ic{width:30px;height:30px;margin-bottom:6px}
 .fl2-no,.fl2-dia .fl2-no,.fl2-out .fl2-no{left:-10px;top:-10px;margin:0;width:28px;height:28px;font-size:.78rem;box-shadow:0 0 0 3px #fff,0 4px 10px rgba(84,66,255,.3)}
-.fl2-n:hover,.fl2-n.on,.fl2-n:focus-visible{transform:translateY(-3px) scale(1.02)}
+.fl2-n:hover,.fl2-n.on,.fl2-n:focus-visible{transform:scale(1.02)}
 .fl2-dia{border:2px solid #7a5cff;background:linear-gradient(180deg,#fff,#f1edff);box-shadow:0 8px 20px rgba(84,66,255,.12);padding:18px 16px}
 .fl2-dia:hover,.fl2-dia.on{background:linear-gradient(180deg,#fff,#e9e2ff);box-shadow:0 14px 28px rgba(84,66,255,.25)}
 .fl2-dsv{display:none}.fl2-tx{padding:0}
@@ -308,6 +308,12 @@ function info(id){const d=D[id];if(!d)return;const n=nodes[id];
  if(id==="dec"){["Yes","No"].forEach(w=>{const b=document.createElement("button");b.type="button";b.textContent="Preview “"+w+"” path";b.onclick=()=>route(w==="Yes"?"cy":"cn");A.appendChild(b)})}
  if(d[3]){const a=document.createElement("a");a.href=d[3];a.textContent="See this screen ↓";A.appendChild(a)}}
 function reset(){T.textContent=dflt[0];Tag.textContent=dflt[1];Dd.textContent=dflt[2];ib.textContent="▶";A.innerHTML=""}
+
+function fitInfo(){const box=P("fl2Info");if(!box)return;box.style.minHeight="";let m=box.offsetHeight;
+ Object.keys(D).forEach(k=>{if(nodes[k]){info(k);m=Math.max(m,box.offsetHeight)}});
+ if(pinned)info(pinned);else reset();box.style.minHeight=Math.ceil(m)+"px"}
+fitInfo();addEventListener("load",fitInfo);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitInfo);
+let fiT;addEventListener("resize",()=>{clearTimeout(fiT);fiT=setTimeout(fitInfo,150)});
 const lit=ids=>ids.forEach(i=>P(i)&&P(i).classList.add("lit"));
 let rt=null;function route(id){clearTimeout(rt);all(".fl2-p.hl").forEach(p=>p.classList.remove("hl"));P(id).classList.add("hl");rt=setTimeout(()=>P(id).classList.remove("hl"),1800);if(!reduce)dot(id)}
 all(".fl2-yn").forEach(b=>{b.addEventListener("click",()=>{info("dec");route(b.dataset.r)})});
