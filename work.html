@@ -409,8 +409,13 @@ let sel=-1,leaveT=null;
 function part(i){const S=cards[0].offsetWidth*.24;cards.forEach((c,n)=>{const k=i>=0&&n<i&&current<0?1+(i-n-1)*.12:0;c.style.setProperty("--ox",(-k*S)+"px");c.style.setProperty("--oy",(k*S*.5)+"px")})}
 function step(d){sel=sel<0?(d>0?0:cards.length-1):(sel+d+cards.length)%cards.length;hl(sel)}
 function hl(i){if(i>=0)sel=i;if(!mobile.matches)part(i);cards.forEach((c,n)=>c.classList.toggle("hl",n===i));idx.forEach((b,n)=>b.classList.toggle("hl",n===i));stage.classList.toggle("has-hl",i>=0&&current<0)}
-[...cards,...idx].forEach(el=>{const i=+el.dataset.i;
- el.addEventListener("mouseenter",()=>{clearTimeout(leaveT);hl(i)});el.addEventListener("mouseleave",()=>{clearTimeout(leaveT);leaveT=setTimeout(()=>hl(-1),110)});
+/* hover intent: a card that lifts/shifts under the cursor must not flip hover on and off at its edges */
+let px=0,py=0,holding=null;
+addEventListener("mousemove",e=>{px=e.clientX;py=e.clientY;if(holding!==null)checkHold()},{passive:true});
+function nearCard(i){const f=cards[i].querySelector(".face").getBoundingClientRect(),m=24;return px>=f.left-m&&px<=f.right+m&&py>=f.top-m&&py<=f.bottom+m}
+function checkHold(){if(holding===null)return;clearTimeout(leaveT);if(nearCard(holding)){leaveT=setTimeout(checkHold,120);return}holding=null;hl(-1)}
+[...cards,...idx].forEach(el=>{const i=+el.dataset.i,isCard=el.classList.contains("card");
+ el.addEventListener("mouseenter",()=>{clearTimeout(leaveT);holding=null;hl(i)});el.addEventListener("mouseleave",()=>{clearTimeout(leaveT);if(isCard&&!mobile.matches){holding=i;leaveT=setTimeout(checkHold,110)}else leaveT=setTimeout(()=>hl(-1),110)});
  el.addEventListener("focus",()=>hl(i));el.addEventListener("blur",()=>hl(-1));
  el.addEventListener("click",()=>openProject(i,el))});
 
