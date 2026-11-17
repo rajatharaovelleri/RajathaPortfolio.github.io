@@ -382,6 +382,7 @@ html.sx-safari .no{-webkit-backdrop-filter:none;backdrop-filter:none}
 <script>
 (()=>{
 "use strict";
+const SAFARI=document.documentElement.classList.contains("sx-safari");
 /* ---- Content: edit names, categories, descriptions here ---- */
 const FC={"E-Notifiers":"#4C6FFF","Second Cycle":"#dedcd7","BridgeEd":"#4266ed","Around the Block":"#2b3d42"};
 const PROJECTS=[
@@ -420,7 +421,14 @@ $$(".scene").forEach(s=>{const f=s.parentElement;f.classList.add(...[...s.classL
 let sel=-1,leaveT=null;
 function part(i){const S=cards[0].offsetWidth*.24;cards.forEach((c,n)=>{const k=i>=0&&n<i&&current<0?1+(i-n-1)*.12:0;c.style.setProperty("--ox",(-k*S)+"px");c.style.setProperty("--oy",(k*S*.5)+"px")})}
 function step(d){sel=sel<0?(d>0?0:cards.length-1):(sel+d+cards.length)%cards.length;hl(sel)}
-function hl(i){if(i>=0)sel=i;if(!mobile.matches)part(i);cards.forEach((c,n)=>c.classList.toggle("hl",n===i));idx.forEach((b,n)=>b.classList.toggle("hl",n===i));stage.classList.toggle("has-hl",i>=0&&current<0)}
+/* Safari: literal px/deg transforms (WebKit snaps instead of easing when the transform is built from var()/calc) */
+function sfTf(){if(!SAFARI)return;const foc=stage.classList.contains("focus")||current>=0;
+ cards.forEach(c=>{if(foc){c.style.transform="";return}
+  const cs=getComputedStyle(c),sk=cs.getPropertyValue("--sk").trim(),sx=cs.getPropertyValue("--sx").trim();
+  const ox=parseFloat(c.style.getPropertyValue("--ox"))||0,oy=parseFloat(c.style.getPropertyValue("--oy"))||0;
+  c.style.transform="translate3d("+ox+"px,"+oy+"px,0px) skewY("+sk+") scaleX("+sx+") scale("+(c.classList.contains("hl")?1.04:1)+")"})}
+function hl(i){if(i>=0)sel=i;if(!mobile.matches)part(i);cards.forEach((c,n)=>c.classList.toggle("hl",n===i));idx.forEach((b,n)=>b.classList.toggle("hl",n===i));stage.classList.toggle("has-hl",i>=0&&current<0);sfTf()}
+if(SAFARI){requestAnimationFrame(sfTf);addEventListener("resize",sfTf);addEventListener("load",sfTf);if(mobile.addEventListener)mobile.addEventListener("change",sfTf)}
 /* hover intent: a card that lifts/shifts under the cursor must not flip hover on and off at its edges */
 let px=0,py=0,holding=null;
 addEventListener("mousemove",e=>{px=e.clientX;py=e.clientY;if(holding!==null)checkHold()},{passive:true});
@@ -432,7 +440,6 @@ function checkHold(){if(holding===null)return;clearTimeout(leaveT);if(nearCard(h
  el.addEventListener("click",()=>openProject(i,el))});
 
 /* page + per-card parallax */
-const SAFARI=document.documentElement.classList.contains("sx-safari");
 addEventListener("mousemove",e=>{if(SAFARI||reduce.matches||mobile.matches||current>=0)return;
  stage.style.setProperty("--mx",(e.clientX/innerWidth*2-1).toFixed(3));
  stage.style.setProperty("--my",(e.clientY/innerHeight*2-1).toFixed(3))});
@@ -446,7 +453,7 @@ function openProject(i,from){
  closeOverlay(true);lastFocus=from||lastFocus;current=i;
  const p=PROJECTS[i];if(p.href){go(p,i);return}
  $("#pCat").textContent=`0${i+1} — ${p.cat}`;$("#pTitle").textContent=p.name;$("#pDesc").textContent=p.desc;
- cards.forEach((c,n)=>{c.classList.toggle("on",n===i);c.classList.remove("hl");c.style.setProperty("--ox","0px");c.style.setProperty("--oy","0px")});
+ cards.forEach((c,n)=>{c.classList.toggle("on",n===i);c.classList.remove("hl");c.style.setProperty("--ox","0px");c.style.setProperty("--oy","0px")});sfTf();
  if(!mobile.matches){const c=cards[i];
   c.style.setProperty("--fx",(stage.clientWidth*.3-rig.offsetLeft-c.offsetLeft-c.offsetWidth*.55)+"px");
   c.style.setProperty("--fy",(stage.clientHeight*.5-c.offsetTop-c.offsetHeight*.55)+"px");
@@ -467,7 +474,7 @@ function go(p,i){
 }
 function closeProject(){if(current<0)return;current=-1;stage.classList.remove("focus");
  cards.forEach(c=>c.classList.remove("on"));idx.forEach(b=>b.classList.remove("hl"));
- panel.classList.remove("open");panel.setAttribute("aria-hidden","true");lastFocus&&lastFocus.focus({preventScroll:true})}
+ panel.classList.remove("open");panel.setAttribute("aria-hidden","true");sfTf();lastFocus&&lastFocus.focus({preventScroll:true})}
 $("#back").onclick=closeProject;
 
 function setNav(k){$$("nav button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.page===k)))}
