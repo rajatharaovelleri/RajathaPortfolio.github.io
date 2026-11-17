@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Rajatha Rao V — Design Archive</title>
 <meta name="description" content="Portfolio of Rajatha Rao V, Product Designer and UX Designer.">
+<script>(()=>{const u=navigator.userAgent,wk=/AppleWebKit/.test(u)&&!/Chrome|Chromium|Edg|OPR|Android/.test(u)||/CriOS|FxiOS|EdgiOS/.test(u);if(wk)document.documentElement.classList.add("sx-safari")})()</script>
 <style>
 :root{--ink:#111;--ink2:#666;--paper:#fafaf8;--line:#e5e5e5;--accent:#ee5b35;--ease:cubic-bezier(.2,.8,.2,1);
 --w:min(calc((100vh - 290px)*.78),34vw);--h:calc(var(--w)*.7);--sk:18deg;--sx:.8;--rw:calc(var(--w)*var(--sx));--ch:calc(var(--w)*(.7 + var(--sx)*.325))}
@@ -334,6 +335,17 @@ h1 sup{font-size:.5em;color:var(--accent);vertical-align:top;position:relative;t
 @keyframes miAtbBag{0%,44%{transform:translateY(4px) scale(.3);opacity:0}54%{transform:translateY(-3px) scale(1.1);opacity:1}60%{transform:translateY(-1px) scale(1)}84%{transform:translateY(-5px) scale(1);opacity:1}94%,100%{transform:translateY(-8px) scale(1);opacity:0}}
 @media(prefers-reduced-motion:reduce){.mi *{animation:none!important}.mi-fs .ln{stroke-dashoffset:0}.mi-fs .pt{opacity:1}.mi-be .b,.mi-en .dot{opacity:1;transform:none}.mi-atb .rp{opacity:0}}
 </style>
+<style id="sx-safari">
+/* Safari/WebKit trial: flat stacking, no moving hit-areas, no blur inside 3D layers */
+html.sx-safari .stage{perspective:none}
+html.sx-safari .rig{transform-style:flat;transform:none!important;transition:none}
+html.sx-safari .card{transform-style:flat;will-change:auto;z-index:calc(var(--d));transform:translate3d(var(--ox,0px),var(--oy,0px),0) skewY(var(--sk)) scaleX(var(--sx))}
+html.sx-safari .card:hover,html.sx-safari .card:focus-visible,html.sx-safari .card.hl{z-index:20;transform:translate3d(var(--ox,0px),var(--oy,0px),0) skewY(var(--sk)) scaleX(var(--sx)) scale(1.04)}
+html.sx-safari .stage.focus .card.on{z-index:30;transform:translate3d(var(--fx),var(--fy),0) scale(1.1)}
+html.sx-safari .sheet,html.sx-safari .glass{will-change:auto}
+html.sx-safari .gb,html.sx-safari .gt,html.sx-safari .card:hover .gb,html.sx-safari .card:hover .gt,html.sx-safari .card.hl .gb,html.sx-safari .card.hl .gt{-webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(165deg,rgba(255,255,255,.6),color-mix(in srgb,var(--fc) 44%,rgba(255,255,255,.22)))}
+html.sx-safari .no{-webkit-backdrop-filter:none;backdrop-filter:none}
+</style>
 </head>
 <body class="inner">
 <div class="sx-shell"><script src="assets/site.js"></script>
@@ -420,12 +432,13 @@ function checkHold(){if(holding===null)return;clearTimeout(leaveT);if(nearCard(h
  el.addEventListener("click",()=>openProject(i,el))});
 
 /* page + per-card parallax */
-addEventListener("mousemove",e=>{if(reduce.matches||mobile.matches||current>=0)return;
+const SAFARI=document.documentElement.classList.contains("sx-safari");
+addEventListener("mousemove",e=>{if(SAFARI||reduce.matches||mobile.matches||current>=0)return;
  stage.style.setProperty("--mx",(e.clientX/innerWidth*2-1).toFixed(3));
  stage.style.setProperty("--my",(e.clientY/innerHeight*2-1).toFixed(3))});
 stage.addEventListener("mouseleave",()=>{stage.style.setProperty("--mx",0);stage.style.setProperty("--my",0)});
 cards.forEach(c=>{const s=c.querySelector(".scene");
- c.addEventListener("mousemove",e=>{if(reduce.matches||mobile.matches)return;const r=c.getBoundingClientRect();c.style.setProperty("--gx",((e.clientX-r.left)/r.width*100).toFixed(0)+"%");c.style.setProperty("--gy",((e.clientY-r.top)/r.height*100).toFixed(0)+"%");
+ c.addEventListener("mousemove",e=>{if(SAFARI||reduce.matches||mobile.matches)return;const r=c.getBoundingClientRect();c.style.setProperty("--gx",((e.clientX-r.left)/r.width*100).toFixed(0)+"%");c.style.setProperty("--gy",((e.clientY-r.top)/r.height*100).toFixed(0)+"%");
   s.style.setProperty("--px",((e.clientX-r.left)/r.width*2-1).toFixed(2));s.style.setProperty("--py",((e.clientY-r.top)/r.height*2-1).toFixed(2))});
  c.addEventListener("mouseleave",()=>{s.style.setProperty("--px",0);s.style.setProperty("--py",0)})});
 
