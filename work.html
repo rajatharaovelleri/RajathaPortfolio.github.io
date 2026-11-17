@@ -343,6 +343,7 @@ html.sx-safari .card{transform-style:flat;will-change:auto;z-index:calc(var(--d)
 html.sx-safari .card:hover,html.sx-safari .card:focus-visible,html.sx-safari .card.hl{z-index:20;transform:translate3d(var(--ox,0px),var(--oy,0px),0) skewY(var(--sk)) scaleX(var(--sx)) scale(1.04)}
 html.sx-safari .stage.focus .card.on{z-index:30;transform:translate3d(var(--fx),var(--fy),0) scale(1.1)}
 html.sx-safari .sheet,html.sx-safari .glass{will-change:auto}
+html.sx-safari .stage.sx-geo .card{pointer-events:none}
 html.sx-safari .gb,html.sx-safari .gt,html.sx-safari .card:hover .gb,html.sx-safari .card:hover .gt,html.sx-safari .card.hl .gb,html.sx-safari .card.hl .gt{-webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(165deg,rgba(255,255,255,.6),color-mix(in srgb,var(--fc) 44%,rgba(255,255,255,.22)))}
 html.sx-safari .no{-webkit-backdrop-filter:none;backdrop-filter:none}
 </style>
@@ -429,6 +430,23 @@ function sfTf(){if(!SAFARI)return;const foc=stage.classList.contains("focus")||c
   c.style.transform="translate3d("+ox+"px,"+oy+"px,0px) skewY("+sk+") scaleX("+sx+") scale("+(c.classList.contains("hl")?1.04:1)+")"})}
 function hl(i){if(i>=0)sel=i;if(!mobile.matches)part(i);cards.forEach((c,n)=>c.classList.toggle("hl",n===i));idx.forEach((b,n)=>b.classList.toggle("hl",n===i));stage.classList.toggle("has-hl",i>=0&&current<0);sfTf()}
 if(SAFARI){requestAnimationFrame(sfTf);addEventListener("resize",sfTf);addEventListener("load",sfTf);if(mobile.addEventListener)mobile.addEventListener("change",sfTf)}
+/* Safari: hover is decided from the cards' FINAL geometry (not from where they currently are on screen),
+   so a card sliding away/back can never flip hover on and off under a stationary cursor */
+let geoOn=false;
+function sfGeo(){geoOn=SAFARI&&!mobile.matches&&matchMedia("(hover:hover)").matches;stage.classList.toggle("sx-geo",geoOn);if(!geoOn)stage.style.cursor=""}
+if(SAFARI){sfGeo();addEventListener("resize",sfGeo);if(mobile.addEventListener)mobile.addEventListener("change",sfGeo)}
+function gQuad(n,ox,oy,t,rg){const c=cards[n],cs=getComputedStyle(c),a=Math.tan((parseFloat(cs.getPropertyValue("--sk"))||0)*Math.PI/180),sx=parseFloat(cs.getPropertyValue("--sx"))||1,W=c.offsetWidth,H=c.offsetHeight,x0=rg.left+c.offsetLeft+ox,y0=rg.top+c.offsetTop+oy,w=W*t*sx;
+ return[[x0,y0],[x0+w,y0+w*a],[x0+w,y0+H*t+w*a],[x0,y0+H*t]]}
+function inQuad(q,x,y){let s=0;for(let i=0;i<4;i++){const a=q[i],b=q[(i+1)%4],c=(b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0]);if(c!==0){if(s&&(c>0)!==(s>0))return false;s=c}}return true}
+function gValid(B,x,y,rg){if(!inQuad(gQuad(B,0,0,1.04,rg),x,y))return false;const S=cards[0].offsetWidth*.24;
+ for(let n=0;n<B;n++){const k=1+(B-n-1)*.12;if(inQuad(gQuad(n,-k*S,k*S*.5,1,rg),x,y))return false}return true}
+function gPick(x,y){const rg=cards[0].offsetParent.getBoundingClientRect();
+ if(sel>=0&&cards[sel].classList.contains("hl")&&gValid(sel,x,y,rg))return sel;
+ for(let B=0;B<cards.length;B++)if(gValid(B,x,y,rg))return B;return -1}
+addEventListener("mousemove",e=>{if(!geoOn||current>=0||!stage.contains(e.target))return;const p=gPick(e.clientX,e.clientY),cur=cards.findIndex(c=>c.classList.contains("hl"));
+ stage.style.cursor=p>=0?"pointer":"";if(p!==cur){clearTimeout(leaveT);hl(p)}},{passive:true});
+stage.addEventListener("mouseleave",()=>{if(!geoOn||current>=0)return;stage.style.cursor="";clearTimeout(leaveT);leaveT=setTimeout(()=>hl(-1),110)});
+stage.addEventListener("click",e=>{if(!geoOn||current>=0)return;const p=gPick(e.clientX,e.clientY);if(p>=0)cards[p].click()});
 /* hover intent: a card that lifts/shifts under the cursor must not flip hover on and off at its edges */
 let px=0,py=0,holding=null;
 addEventListener("mousemove",e=>{px=e.clientX;py=e.clientY;if(holding!==null)checkHold()},{passive:true});
