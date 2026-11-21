@@ -65,6 +65,8 @@ img{color:transparent}img.is-broken{visibility:visible}
 h1 em,h2 em{font-style:normal;font-weight:inherit!important}
 .hero h1{letter-spacing:-.055em}
 .skip-link{z-index:3000}
+.foot-nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.foot-nav a{text-decoration:none}.backbtn.solid{background:var(--green);color:#fff}.backbtn.solid:hover{background:#113b27}
+footer{align-items:center}@media(max-width:530px){.foot-nav{flex-direction:column;align-items:stretch;width:100%}.foot-nav .backbtn{justify-content:center}}
 #cover{position:fixed;inset:0;z-index:2000;pointer-events:none}
 #cover .pn{position:absolute;inset:0;display:grid;place-items:center}
 #cover .g{background:#dce9cd}#cover .o{background:#658b6a}
@@ -222,7 +224,7 @@ h1 em,h2 em{font-style:normal;font-weight:inherit!important}
 </section>
 
 </main>
-<div class="shell"><footer><span>© 2026 · Around the Block / Local Market</span></footer></div></div></div>
+<div class="shell"><footer><span>© 2026 · Around the Block / Local Market</span><nav class="foot-nav" aria-label="More projects"><a class="backbtn" href="second-cycle.html">← Previous project: Second Cycle</a><a class="backbtn solid" href="work.html">Back to all projects</a></nav></footer></div></div></div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screen viewer"><button class="lb-x" id="lb-x" type="button" aria-label="Close">×</button><button class="lb-n prev" id="lb-prev" type="button" aria-label="Previous screen">‹</button><div class="lb-body"><div class="phone lg"><div class="scr"><img id="lb-img" alt=""/></div></div><div class="lb-cap" id="lb-cap"></div></div><button class="lb-n next" id="lb-next" type="button" aria-label="Next screen">›</button></div>
 <script>const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));</script>
 <script>
