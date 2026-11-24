@@ -93,7 +93,9 @@ html.sx-lock{overflow:hidden}
 /* resume popup */
 .rs-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .rs-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:9px;border:1px solid #202420;font-weight:700;font-size:13px;color:#202420;transition:transform .2s,background .2s,color .2s}
+.rs-btn:not(.primary){background:#d8f25e;border-color:#d8f25e}
 .rs-btn:hover{transform:translateY(-2px);background:#d8f25e}
+.rs-btn:not(.primary):hover{background:#cde84a;border-color:#cde84a}
 .rs-btn.primary{background:#202420;color:#fff}.rs-btn.primary:hover{background:#485b28;color:#fff}
 .rs-thumb{display:block;border:1px solid #dfe1d9;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 14px 30px rgba(32,36,32,.14);transition:transform .3s,box-shadow .3s}
 .rs-thumb:hover{transform:translateY(-3px);box-shadow:0 20px 38px rgba(32,36,32,.2)}
